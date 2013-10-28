@@ -1,0 +1,13 @@
+
+This is a reminder that <%= @teacher_recommendation.applicant.first_name %> <%= @teacher_recommendation.applicant.last_name %> submitted an application 
+to Piedmont Governor's School for Math, Science, and Technology. 
+
+<%= @teacher_recommendation.applicant.first_name %> indicated that they would like for you to complete a 
+Faculty Recommendation to be used as a reference in the application process. 
+Please visit the link below to complete the recommendation. 
+
+This should be submitted by <%= @teacher_recommendation.applicant.date_due.strftime("%m/%d/%Y") %>.
+
+<%= edit_teacher_recommendation_url(@teacher_recommendation) %> 
+
+Thank you!

@@ -1,0 +1,26 @@
+
+
+body{
+	background:white;
+	font-size:11pt;
+}
+.noprint{
+	display:none;
+}
+.navbar{
+	display:none;
+}
+table, tr, td{
+	border:1px solid black;
+	border-collapse:collapse;
+}
+td.score{
+	width:6%;
+	text-align:center;
+}
+td.description{
+	width:94%
+}
+.noborder{
+	border:none;
+}

@@ -1,0 +1,19 @@
+<% provide(:title, 'Archived Applicants') %>
+<h1>Previous Applicants</h1>
+
+
+<div class="row">
+	<% @applicant_years.sort.reverse.each do |year, applicants| %>
+	<div class="span4">
+		<h3><%=h year.strftime("%Y") %> Applicants</h3>
+		<ul class="applicants">
+		    <% for applicant in applicants %>
+		    <li class="evenrow">
+				<%= link_to applicant, coordinator_applicant_path(applicant) %>
+				- <%= applicant.school.name %>		
+			</li>
+		    <% end %>
+		</ul>
+	</div>
+	<% end %>
+</div>

@@ -1,0 +1,164 @@
+<div class="row">
+	<div class="span10 offset1">
+		<% if @teacher_recommendation.created? %>
+			<h1>
+				Recommendation not yet complete<br />
+				<%= link_to "Return to Applicant Page", 
+					coordinator_applicant_path(@teacher_recommendation.applicant.id) %><br />
+				<%= button_to "Send Reminder", 
+					coordinator_teacher_recommendation_recommendation_reminders_path(@teacher_recommendation.slug),
+				 	:method => :post, class: "btn btn-medium" %>
+				</h1>
+				<p>
+					If the teacher is not receiving the invitation emails, you can copy and paste the direct link below to them. <br />
+					Click the button to the right of the link to automatically copy it to your clipboard. <br />
+					<span id="clipme"><%= edit_teacher_recommendation_url(@teacher_recommendation) %></span>
+					<%= clippy("#{edit_teacher_recommendation_url(@teacher_recommendation)}", "#ffffff").html_safe %>
+				</p>
+		<% end %>
+		<h3 class="recommend">Faculty Recommendation for 
+			<%= @teacher_recommendation.applicant.first_name %> 
+			<%= @teacher_recommendation.applicant.last_name %>.
+		</h3>
+		<h4 class = "offset3-5">
+			Grade Level: <%= @teacher_recommendation.applicant.grade %><br />
+			Gender: <%= @teacher_recommendation.applicant.gender %><br />
+			Subject Area: <%= @teacher_recommendation.subject %><br />
+			Completed by: <%= @teacher_recommendation.teacher_name %>
+		</h4>
+		<hr />
+		<h3 class="recommend">Student Ratings</h3>
+		<h4 class="recommend">Candidates were rated based on the following scale:</h4>
+		<p class="offset3-5">
+			1 = Not observed<br />
+			2 = Needs improvement<br />
+			3 = Average<br />
+			4 = Above average<br />
+			5 = Excellent
+		</p>
+		The student:	
+		<table class="table table-bordered">
+			<tr>
+				<td>
+					1. Shows desire and curiosity for learning:
+				</td>
+				<td class="score">
+					<%= @teacher_recommendation.desire %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					2. Has aptitude and potential for study in math, science, technology and communications: 
+				</td>
+				<td class="score">
+					<%= @teacher_recommendation.aptitude %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					3. Shows persistence when faced with challenges: 		
+				</td>
+				<td class="score">
+					<%= @teacher_recommendation.persistence %>	
+				</td>
+			</tr>
+			<tr>
+				<td>
+					4. Is self-disciplined in establishing and reaching goals: 
+				</td>
+				<td class="score">
+					<%= @teacher_recommendation.self_discipline %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					5. Interacts well with other students and teachers: 
+				</td>
+				<td class="score">
+					<%= @teacher_recommendation.interaction %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					6. Has developed problem-solving skills/critical thinking skills: 
+				</td>
+				<td class="score">
+					<%= @teacher_recommendation.problem_solving %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					7. Demonstrates skill in asking inquiry-type questions: 
+				</td>
+				<td class="score">
+					<%= @teacher_recommendation.inquiry_skills %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					8. Demonstrates outstanding study skills and work habits: 
+				</td>
+				<td class="score">
+					<%= @teacher_recommendation.study_skills %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					9. Possesses excellent time management skills: 
+				</td>
+				<td class="score">
+					<%= @teacher_recommendation.time_management %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					10. Demonstrates effective teamwork skills: 
+				</td>
+				<td class="score">
+					<%= @teacher_recommendation.teamwork %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					11. Shows strong dedication: 
+				</td>
+				<td class="score">
+					<%= @teacher_recommendation.dedication %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					12. Has exceptional work ethic:
+				</td>
+				<td class="score">
+					<%= @teacher_recommendation.work_ethic %>
+				</td>
+			</tr>
+		</table>	
+		<h4 class="recommend">Teacher's general recommendation - based on the following scale:</h4>
+		<p class="offset3">
+			0 = Do not recommend<br />
+			1 = Recommend with reservations<br />
+			3 = Recommend<br />
+			5 = Highly Recommend
+		</p>
+		<table class="table table-bordered">
+			<tr>
+				<td class="description">
+					Recommendation Score:
+				</td>
+				<td class="score">
+					<%= @teacher_recommendation.recommendation %>
+				</td>
+			</tr>
+			<tr>
+				<td class="description">
+					Total Score:
+				</td>
+				<td class="score">
+					<%= @teacher_recommendation.total_score %>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,76 @@
+<div class="row">
+	<div class="center-hero-unit">
+		<h1>Application Status</h1>
+		<h2 class="larger-h2"><%= @applicant.to_s %></h2>
+	</div>
+</div>
+<div class="row">
+	<div class="span12">
+		<table class="table-condensed table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>Applicant Section</th>
+					<th>Counselor Section</th>
+					<th colspan="2">Science Recommendation</th>
+					<th colspan="2">English Recommendation</th>
+					<th colspan="2">Math Recommendation</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="tr-center">
+					<td>
+						<% if @applicant.applicant_portion_complete? %>
+							<%= image_tag("check.png") %>
+						<% else %>
+							<%= image_tag("x.png") %>
+						<% end %>			
+					</td>
+					<% if @applicant.counselor_portion_complete? %>
+						<td><%= image_tag("check.png") %></td>
+						<%if @applicant.science_recommendation.present? %>
+							<td>Sent<br /><%= image_tag("check.png") %></td>
+							<% if !@applicant.science_recommendation_not_complete? %>
+								<td>Completed<br /><%= image_tag("check.png") %></td>
+							<% else %>
+								<td>Completed<br /><%= image_tag("x.png") %></td>
+							<% end %>
+						<% else %>
+							<td>Sent<br /><%= image_tag("x.png") %></td>
+							<td>Completed<br /><%= image_tag("x.png") %></td>
+						<% end %>		
+						<%if @applicant.english_recommendation.present? %>
+							<td>Sent<br /><%= image_tag("check.png") %></td>
+							<% if !@applicant.english_recommendation_not_complete? %>
+								<td>Completed<br /><%= image_tag("check.png") %></td>
+							<% else %>
+								<td>Completed<br /><%= image_tag("x.png") %></td>
+							<% end %>
+						<% else %>
+							<td>Sent<br /><%= image_tag("x.png") %></td>
+							<td>Completed<br /><%= image_tag("x.png") %></td>
+						<% end %>
+						<%if @applicant.math_recommendation.present? %>
+							<td>Sent<br /><%= image_tag("check.png") %></td>
+							<% if !@applicant.math_recommendation_not_complete? %>
+								<td>Completed<br /><%= image_tag("check.png") %></td>
+							<% else %>
+								<td>Completed<br /><%= image_tag("x.png") %></td>
+							<% end %>
+						<% else %>
+							<td>Sent<br /><%= image_tag("x.png") %></td>
+							<td>Completed<br /><%= image_tag("x.png") %></td>
+						<% end %>
+					<% else %>
+						<td><%= image_tag("x.png") %></td>
+						<td>Sent<br /><%= image_tag("x.png") %></td>
+						<td>Completed<br /><%= image_tag("x.png") %></td>
+						<td>Sent<br /><%= image_tag("x.png") %></td>
+						<td>Completed<br /><%= image_tag("x.png") %></td>
+						<td>Sent<br /><%= image_tag("x.png") %></td>
+						<td>Completed<br /><%= image_tag("x.png") %></td>
+					<% end %>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

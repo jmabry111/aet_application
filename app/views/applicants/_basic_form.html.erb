@@ -1,0 +1,50 @@
+<%= simple_form_for @applicant do |f| -%>
+	<%= render 'shared/error_messages', object: f.object %>
+	<%= f.association :school %>
+	<%= f.input :first_name, :label => "First Name"  %> 
+	<%= f.input :middle_name, :label => "Middle Name"  %>
+	<%= f.input :last_name, :label => "Last Name" %>
+	<%= f.input :gender, :collection => ["Male", "Female"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+	<%= f.input :grade, :collection => ["11", "12"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+	<%= f.input :parent_first_name, :label => "Parent/Guardian First Name" %> 
+	<%= f.input :parent_last_name, :label => "Parent/Guardian Last Name" %>
+	<%= f.input :address, :label => "Parent Street Address" %>
+	<%= f.input :city %>
+	<%= f.input :state, :input_html => {:maxlength => 2, :value => "VA"} %>
+	<%= f.input :zip, :label => "5 Digit Zip Code", :input_html => {:maxlength => 5} %>
+	<%= f.input :home_phone, :label => "Parent Home Phone", :placeholder => "555-555-1212" %>
+	<!--[if IE 9]>
+	<p style="color:gray;">Ex: 555-555-1212</p>
+	<![endif]-->
+	<%= f.input :work_phone, :label => "Parent Work Phone", :placeholder => "555-555-1212" %>
+	<!--[if IE 9]>
+	<p style="color:gray;">Ex: 555-555-1212</p>
+	<![endif]-->
+	<%= f.input :email, :label => "Parent Email" %>
+	<%= f.input :applicant_email, :label => "Student Email" %>
+	<hr />
+	<p>
+		Names of Teachers Completing Recommendations:
+		<%= f.input :math_teacher, :label => "Math:", :input_html => {:value => @applicant.math_teacher} %>
+		<%= f.input :science_teacher, :label => "Science:", :input_html => {:value => @applicant.science_teacher} %>
+		<%= f.input :english_teacher, :label => "English:", :input_html => {:value => @applicant.english_teacher} %>
+		<%= f.input :teacher_contacted, :as => :boolean, :inline_label => "I verify that I have contacted 
+					the above teachers concerning these recommendations.", :label => "Teachers Contacted"%>
+	</p>
+	<hr />
+	<p class="confirm">
+		<%= f.input :applicant_confirmation, :as => :boolean, :inline_label => "The decision to apply to the Piedmont Governor's 
+			School for Mathematics, Science, and Technology is my own, and I want to participate fully in this program. I have read in 
+			its entirety the application procedures, inculding the application forms, and am aware of the appeals process of my school 
+			division." %>
+	</p>
+	<p>
+		<%= f.input :parent_confirmation, :as => :boolean, :inline_label => "I, the parent/guardian of the above named student, am aware 
+			of and am in full support of the student's application to the Piedmont Governor's School for Mathematics, Science, and Technology 
+			and give my permission for the student's academic records to be reviewed by the division's Selection Committee. I have read in 
+			its entirety the application procedures, inculding the application forms, and am aware of the appeals process of my school 
+			division." %>
+	</p>
+	<%= f.submit "Submit my information", class: "btn btn-large" %> 
+	<h4 style="color:red;">This may take a moment. Please only press submit once.</h4>
+<% end %>

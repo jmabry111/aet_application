@@ -1,0 +1,13 @@
+<%= provide(:title, @applicant.last_name) %>
+<div class="row">
+  <div class="span6 offset3"> 
+	<p>
+		Please update the information (if needed) and send a reminder to the teacher.
+	</p>
+	<%= simple_form_for @teacher_recommendation, :url => coordinator_applicant_path(@teacher_recommendation.applicant.id) do |f| %>
+		<%= f.input :teacher_name, :input_html => {:value => :teacher_name} %>
+		<%= f.input :email, :input_html => {:value => :email} %>
+		<%= f.submit "Update Info and Send Reminder", :class => "btn btn-large" %>
+	<% end %>
+  </div>
+</div>

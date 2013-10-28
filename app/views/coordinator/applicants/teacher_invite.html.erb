@@ -1,0 +1,12 @@
+<%= provide(:title, @applicant.last_name) %>
+<div class="row">
+  <div class="span6 offset3">
+	<%= simple_form_for @applicant do |f| -%>
+		<%= render 'shared/error_messages', object: f.object %>
+		<%= f.input :science_teacher_email, :label => "Science Teacher Email" %>
+		<%= f.input :math_teacher_email, :label => "Math Teacher Email" %>
+		<%= f.input :english_teacher_email, :label => "English Teacher Email" %>
+		<%= f.submit "Send Teacher Invitations", :class => "btn btn-large" %>
+	<% end %>
+  </div>
+</div>

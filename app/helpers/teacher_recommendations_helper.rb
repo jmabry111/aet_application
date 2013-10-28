@@ -1,0 +1,2 @@
+module TeacherRecommendationsHelper
+end

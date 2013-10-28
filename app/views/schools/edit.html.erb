@@ -1,0 +1,10 @@
+<%= provide(:title, "Edit Schools") %>
+
+<div class="row">
+  <div class="span6 offset3">
+	<%= simple_form_for @school do |f| -%>	
+		<%= render 'shared/error_messages', object: f.object %>
+		<%= f.input(:name, :input_html => {:value => @school.name}) %>
+	<% end %>
+  </div>
+</div>

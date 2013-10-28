@@ -1,0 +1,10 @@
+<% provide(:title, 'All Schools') %>
+<h1>Schools</h1>
+
+<%= will_paginate %>
+
+<ul class="schools">
+	<% @schools.each do |s| %>
+		<%= render s %>
+	<% end %>
+</ul>

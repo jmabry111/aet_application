@@ -1,0 +1,45 @@
+<h1>Teacher Recommendations</h1>
+<div class="row">
+	<div class="span10 offset1">
+		<div class="form-horizontal">
+			<%= simple_form_for @teacher_recommendation do |f| -%>
+				<%= f.association :applicant %>
+				<h3>Please rate the candidate in the following categories by checking the appropriate number based on the following rating scale.</h3>
+				<p>
+					1 = Not observed
+					2 = Needs improvement
+					3 = Average
+					4 = Above average
+					5 = Excellent
+				</p>
+				<%= render 'shared/error_messages', object: f.object %>
+				<%= f.input :desire, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+				<%= f.input :aptitude, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+				<%= f.input :persistence, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+				<%= f.input :self_discipline, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+				<%= f.input :interaction, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+				<%= f.input :problem_solving, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+				<%= f.input :inquiry_skills, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+				<%= f.input :study_skills, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+				<%= f.input :time_management, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+				<%= f.input :teamwork, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+				<%= f.input :dedication, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+				<%= f.input :work_ethic, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+				<hr />
+					<h3>Please indicate your general recommendation for this student.</h3>
+				<p>
+					0 = Do not recommend
+					1 = Recommend with reservations
+					3 = Recommend
+					5 = Highly recommend
+				</p>
+				<%= f.input :recommendation, :collection => ["0","1","3","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+				<hr />
+				<%= f.input :subject, :label => "Subject Area" %>
+				<%= f.input :date_submitted, :label => "Date Submitted", :input_html => {:value => :date} %>
+				<hr />
+				<%= f.submit "Submit Recommendation", class: "btn btn-large btn-primary" %>
+			<% end %>
+		</div>
+	</div>
+</div>

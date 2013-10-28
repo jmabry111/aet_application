@@ -1,0 +1,2 @@
+module Coordinator::ArchiveHelper
+end

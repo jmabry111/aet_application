@@ -1,0 +1,197 @@
+<%= provide(:title, @applicant.last_name) %>
+<div class="row">
+  <div class="span9 offset2 noprint">
+	<h2>Faculty Recommendations</h2>
+	  <div class="span12">
+		<%if @applicant.science_recommendation.present? %>
+			<span class="span-one-third">
+				<%= link_to "Science Recommendation", 
+						coordinator_teacher_recommendation_path(@applicant.science_recommendation) %>
+				<% if @applicant.science_recommendation_not_complete? %>
+					<%= image_tag("x.png") %><br />
+					<div class="not_complete">
+						Last notified <%= time_ago_in_words(@applicant.science_recommendation.last_notified_at) %> ago.
+						<%= button_to "Send Reminder", 
+							edit_coordinator_teacher_recommendation_path(@applicant.science_recommendation),
+						 	class: "btn btn-mini", :method => :get %>
+					</div>
+				<% else %>
+					<%= image_tag("check.png") %>
+				<% end %>
+			</span>
+		<%end %>
+		<%if @applicant.math_recommendation.present? %>
+			<span class="span-one-third offset-one-third">
+				<%= link_to "Math Recommendation", 
+						coordinator_teacher_recommendation_path(@applicant.math_recommendation) %>
+				<% if @applicant.math_recommendation_not_complete? %>
+					<%= image_tag("x.png") %><br />
+					<div class="not_complete">
+						Last notified <%= time_ago_in_words(@applicant.math_recommendation.last_notified_at) %> ago.
+						<%= button_to "Send Reminder", 
+							edit_coordinator_teacher_recommendation_path(@applicant.math_recommendation),
+						 	class: "btn btn-mini", :method => :get %>
+					</div>
+				<% else %>
+					<%= image_tag("check.png") %>
+				<% end %>
+			</span>
+		<% end %>
+		<%if @applicant.english_recommendation.present? %>
+			<span class="span-one-third offset-two-thirds">
+				<%= link_to "English Recommendation", 
+						coordinator_teacher_recommendation_path(@applicant.english_recommendation) %>
+				<% if @applicant.english_recommendation_not_complete? %>
+					<%= image_tag("x.png") %><br />
+					<div class="not_complete">
+						Last notified <%= time_ago_in_words(@applicant.english_recommendation.last_notified_at) %> ago.
+						<%= button_to "Send Reminder", 
+							edit_coordinator_teacher_recommendation_path(@applicant.english_recommendation),
+						 	class: "btn btn-mini", :method => :get %>
+					</div>
+				<% else %>
+					<%= image_tag("check.png") %>
+				<% end %>
+			</span>
+		<% end %>
+	  </div>
+  </div>
+  <div class="span9 offset2">
+  <hr />
+	<h2>Applicant Submitted Section</h2>
+	<hr />
+	<%= link_to "Edit Information", edit_coordinator_applicant_path(@applicant) %>
+	<table class="noborder" style="width:100%;">
+		<tr class="noborder">
+			<td class="noborder" colspan="2">
+				<h5>ID: <%= @applicant.id %></h5>
+			</td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder" style="width:50%;">
+				Name: <%= @applicant.first_name %> <%= @applicant.middle_name %> <%= @applicant.last_name %>
+			</td>
+			<td class="noborder" style="width:40%;">Gender: <%= @applicant.gender %></td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder" style="width:50%;">High School: <%= @applicant.school.name %><br /><br /></td>
+			<td class="noborder" style="width:50%;">Grade Level: <%= @applicant.grade %><br /><br /></td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder" colspan="2">
+				Parent Name: <%= @applicant.parent_first_name %> <%= @applicant.parent_last_name %><br />
+			</td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder" colspan="2">
+				<table class="noborder">
+					<tr class="noborder">
+						<td style="vertical-align:top;" class="noborder">
+							Home Address:
+						</td>
+						<td class="noborder"> 
+							<%= @applicant.address %><br />
+							<%= @applicant.city %>, <%= @applicant.state %> <%= @applicant.zip %><br />			              
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder" style="width:50%;">
+				Home Phone: <%= number_to_phone(@applicant.home_phone, :area_code => true) %>
+			</td>
+			<td class="noborder" style="width:50%;">
+				Work Phone: <%= number_to_phone(@applicant.work_phone, :area_code => true) %>
+			</td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder" colspan="2">Parent Email Address: <%= @applicant.email %></td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder" colspan="2">Student Email Address: <%= @applicant.applicant_email %></td>
+		</tr>
+	</table>
+	<br /><br />
+	<table class="noborder">
+		<tr class="noborder">
+			<th colspan="2">Names of Teachers Completing Recommendations:</th>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder">Math:</td>
+			<td class="noborder"><%= @applicant.math_teacher %></td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder">Science:</td>
+			<td class="noborder"><%= @applicant.science_teacher %></td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder">English:</td>
+			<td class="noborder"><%= @applicant.english_teacher %></td>
+		</tr>
+	</table>
+	<hr />
+	<h4>
+		I, <span style="text-decoration:underline;"><%= @applicant.first_name %> <%= @applicant.middle_name %> 
+		<%= @applicant.last_name %></span>, have agreed that the decision to apply to the Piedmont Governor's School 
+		for Mathematics, Science, and Technology is my own, and I want to participate fully in this program. I have 
+		read in its entirety the application procedures, inculding the application forms, and am aware of the appeals 
+		process of my school division.
+	</h4>
+	<h4>
+		I, <span style="text-decoration:underline;"><%= @applicant.parent_first_name %> <%= @applicant.parent_last_name %>
+		</span>, am aware of and am in full support of the student's application to the Piedmont Governor's School for 
+		Mathematics, Science, and Technology and give my permission for the student's academic records to be reviewed 
+		by the division's Selection Committee. I have read in its entirety the application procedures, inculding the 
+		application forms, and am aware of the appeals process of my school division.
+	</h4>
+	<hr />
+  </div>
+  <div class="span9 offset2">
+	<h2>Gifted Coordinator/Guidance Counselor Submitted Section</h2>
+	<hr />
+	<%= link_to "Edit Information", edit_coordinator_applicant_path(@applicant) %>
+	<table class="noborder" style="width:100%;">
+		<tr class="noborder">
+			<td class="noborder">
+					High School: <%= @applicant.school.name %> 
+			</td>
+			<td class="noborder">
+				<% if @applicant.school_phone.present? %>
+					School Phone: <%= number_to_phone(@applicant.school_phone, :area_code => true) %>
+				<% end %>				
+			</td>
+		</tr>
+		<% if @applicant.counselor_name.present? %>
+			<tr class="noborder">
+				<td class="noborder" colspan="2">
+						Name of Guidance Counselor or Designee: <%= @applicant.counselor_name %>
+				</td>
+			</tr>	
+		<% end %>
+		<tr class="noborder">
+			<td class="noborder" colpan="2">
+				Unweighted GPA: <%= @applicant.gpa %>
+			</td>
+		</tr>	
+		<% if @applicant.due_to.present? %>
+			<tr class="noborder">
+				<td class="noborder" colspan="2">
+						Information Due To: <%= @applicant.due_to %>
+				</td>
+			</tr>	
+		<% end %>
+		<tr class="noborder">
+			<td class="noborder" colspan="2">
+				<% if @applicant.date_due.present?%>
+					<p>Date Due: <%= @applicant.date_due.strftime("%m/%d/%Y") %></p>
+				<% end %>
+			</td>
+		</tr>
+	</table>
+	<p style="font-weight:bold;">
+		Please attach an official copy of the student's transcript and an official copy of most 
+		recent standardized test data.
+	</p>
+  </div>
+</div>

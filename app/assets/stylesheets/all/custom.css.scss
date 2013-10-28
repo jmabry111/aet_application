@@ -1,0 +1,173 @@
+
+/* mixins, variables, etc */
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing{
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+
+/* universal */
+
+body{
+	background-image: url("/assets/bg_new.png");
+	background-color: #fff;
+}
+html{
+	overflow-y: scroll;
+}
+
+body{
+	padding-top:60px;
+}
+
+section{
+	overflow:auto;
+}
+
+textarea{
+	resize:vertical;
+}
+
+.center{
+	text-align:center;
+	h1{
+		margin-bottom:10px;
+	}
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6{
+	line-height:1;
+}
+h1{
+	font-size:3em;
+	letter-spacing:-2px;
+	margin-bottom:30px;
+	text-align:center;
+}
+h2{
+	font-size:1.7em;
+	letter-spacing:-1px;
+	margin-bottome:30px;
+	text-align:center;
+	font-weight:normal;
+	color:darkgray;
+}
+.larger-h2{
+	font-size:2.75em;
+}
+p{
+	font-size:1.1em;
+	line-height:1.7em;
+}
+.underline{
+	text-decoration:underline;
+}
+
+
+/* header */
+
+#logo{
+	float:left;
+	margin-right:5px;
+	font-size:1.7em;
+	color:white;
+	text-transform:uppercase;
+	letter-spacing:-1px;
+	font-wieght:bold;
+	line-height:1;
+	&:hover{
+		color:white;
+		text-decoration:none;
+	}
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  padding: 10px;
+  height: auto;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+ }
+
+.applicants{
+	list-style:none;
+	margin:0;
+	li{
+		overflow:auto;
+		padding:10px 0;
+		&:last-child{
+			border-bottom:1px solid gray;
+		}
+		&:first-child{
+			border-top:1px solid gray;
+		}
+	}
+}
+.evenrow{
+	border-bottom:1px solid gray;
+}
+
+/* inline? */
+.inline_field_wrapper {
+    display: inline-block;
+}
+
+/* confirmation */
+
+.simple_form div.boolean label{
+font-weight:bold;
+}
+
+/* recommendation */
+.recommend{
+	text-align:center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+/* footer */
+
+footer{
+	margin-top:45px;
+	padding-top:5px;
+	border-top:1px solid #eaeaea;
+	color:#696969;
+	a{
+		color:#696969;
+		&:hover{
+			color:#2F4F4F;
+		}
+	}
+}
+
+.not_complete{
+	text-align:center;
+	color:#696969;
+	font-size:8pt;
+}

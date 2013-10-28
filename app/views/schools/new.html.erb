@@ -1,0 +1,11 @@
+<h1>Enter school</h1>
+
+<div class="row">
+	<div class="span6 offset3">
+		<%= simple_form_for @school do |f| -%>
+			<%= render 'shared/error_messages', object: f.object %>
+			<%= f.input(:name) %>
+			<%= f.submit "Add new school", class: "btn btn-large" %>
+		<% end %>
+	</div>
+</div>

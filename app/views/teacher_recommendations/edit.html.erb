@@ -1,0 +1,119 @@
+<h1>Teacher Recommendations</h1>
+<div class="row">
+	<div class="span10 offset1">
+		<%= simple_form_for @teacher_recommendation do |f| -%>
+		<div class="form-horizontal">
+			<h3>
+				Applicant: 
+				<%= @teacher_recommendation.applicant.first_name %>
+				<%= @teacher_recommendation.applicant.last_name %>
+			</h3>
+			<h3>
+				Subject Area:
+				<%= @teacher_recommendation.subject %>
+			</h3><hr />		
+				<h2>
+					All information submitted on this recommendation will be confidential and viewed 
+					only by authorized school personnel.
+				</h2>
+				<hr />
+				<h3>
+					Please rate the candidate in the following categories by checking the appropriate 
+					number based on the following rating scale.
+				</h3>
+				<p>
+					1 = Not observed
+					2 = Needs improvement
+					3 = Average
+					4 = Above average
+					5 = Excellent
+				</p>
+				<%= render 'shared/error_messages', object: f.object %>
+				<%= 
+					f.input :desire, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+				 	:input_html => {:value => @teacher_recommendation.desire}, 
+					:label => "Shows desire and curiosity for learning" 
+				%>
+				<%= 
+					f.input :aptitude, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+				 	:input_html => {:value => @teacher_recommendation.aptitude},
+				 	:label => "Has aptitude and potential for study in math, science, technology and communications"
+				%>
+				<%= 
+					f.input :persistence, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+				 	:input_html => {:value => @teacher_recommendation.persistence}, 
+					:label => "Shows persistence when faced with challenges"
+				%>
+				<%= 
+					f.input :self_discipline, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+				 	:input_html => {:value => @teacher_recommendation.self_discipline}, 
+					:label => "Is self-disciplined in establishing and reaching goals"
+				%>
+				<%= 
+					f.input :interaction, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+				 	:input_html => {:value => @teacher_recommendation.interaction},
+					:label => "Interacts well with other students and teachers"
+				%>
+				<%= 
+					f.input :problem_solving, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+				 	:input_html => {:value => @teacher_recommendation.problem_solving},
+					:label => "Has developed problem-solving skills/critical thinking skills"
+				%>
+				<%= 
+					f.input :inquiry_skills, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+				 	:input_html => {:value => @teacher_recommendation.inquiry_skills},
+					:label => "Demonstrates skill in asking inquiry-type questions"
+				%>
+				<%= 
+					f.input :study_skills, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+				 	:input_html => {:value => @teacher_recommendation.study_skills},
+					:label => "Demonstrates outstanding study skills and work habits"
+				%>
+				<%= 
+					f.input :time_management, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+				 	:input_html => {:value => @teacher_recommendation.time_management},
+					:label => "Possesses excellent time management skills"
+				%>
+				<%= 
+					f.input :teamwork, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+				 	:input_html => {:value => @teacher_recommendation.teamwork},
+					:label => "Demonstrates effective teamwork skills"
+				%>
+				<%= 
+					f.input :dedication, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+				 	:input_html => {:value => @teacher_recommendation.dedication},
+					:label => "Shows strong dedication"
+				%>
+				<%= 
+					f.input :work_ethic, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,	
+				 	:input_html => {:value => @teacher_recommendation.work_ethic},
+					:label => "Has exceptional work ethic"
+				%>
+		</div>
+		<div class="span6">
+				<hr />
+					<h3>Please indicate your general recommendation for this student.</h3>
+				<%= f.input :recommendation, :collection => [["Do not recommend", 0],["Recommend with reservations", 1],
+					["Recommend", 3],["Highly recommend", 5]], :as => :collection_select,
+					:item_wrapper_class => :inline,
+				 	:input_html => {:value => @teacher_recommendation.recommendation}
+				%>
+				<hr />
+				<%= f.submit "Submit Recommendation", class: "btn btn-large btn-primary" %>
+			<% end %>
+			<br /><br />
+		</div>
+	</div>
+</div>
