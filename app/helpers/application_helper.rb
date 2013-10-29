@@ -1,7 +1,7 @@
 module ApplicationHelper
   #Returns the full title on a per-page basisi
   def full_title(page_title)
-    base_title = "Governor's School Application"
+    base_title = "AET Application"
     if page_title.empty?
       base_title
     else

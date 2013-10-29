@@ -13,7 +13,6 @@ $grayMediumLight: #eaeaea;
 /* universal */
 
 body{
-	background-image: url("/assets/bg_new.png");
 	background-color: #fff;
 }
 html{
@@ -56,7 +55,7 @@ h2{
 	margin-bottome:30px;
 	text-align:center;
 	font-weight:normal;
-	color:darkgray;
+//	color:darkgray;
 }
 .larger-h2{
 	font-size:2.75em;
@@ -157,17 +156,17 @@ footer{
 	margin-top:45px;
 	padding-top:5px;
 	border-top:1px solid #eaeaea;
-	color:#696969;
+//	color:#696969;
 	a{
-		color:#696969;
+//		color:#696969;
 		&:hover{
-			color:#2F4F4F;
+//			color:#2F4F4F;
 		}
 	}
 }
 
 .not_complete{
 	text-align:center;
-	color:#696969;
+//	color:#696969;
 	font-size:8pt;
 }
