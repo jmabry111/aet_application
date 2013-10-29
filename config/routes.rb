@@ -1,4 +1,4 @@
-GovSchoolApplication::Application.routes.draw do
+AETApplication::Application.routes.draw do
   
   ActiveAdmin.routes(self)
 

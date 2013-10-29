@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-GovSchoolApplication::Application.load_tasks
+AETApplication::Application.load_tasks
