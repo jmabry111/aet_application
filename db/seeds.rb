@@ -18,4 +18,5 @@ School.create!(name: "Tunstall High School")
 School.create!(name: "Chatham High School")
 School.create!(name: "Dan River High School")
 School.create!(name: "Gretna High School")
+School.create!(name: "Carlisle School")
 
