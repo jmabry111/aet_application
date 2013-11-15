@@ -4,6 +4,7 @@
 	<%= f.input :first_name, :label => "First Name"  %> 
 	<%= f.input :middle_name, :label => "Middle Name"  %>
 	<%= f.input :last_name, :label => "Last Name" %>
+	<%= f.input :ethnicity, :collection => @ethnicity %>
 	<%= f.input :gender, :collection => ["Male", "Female"], :as => :radio_buttons, :item_wrapper_class => :inline %>
 	<%= f.input :grade, :collection => ["11", "12"], :as => :radio_buttons, :item_wrapper_class => :inline %>
 	<%= f.input :parent_first_name, :label => "Parent/Guardian First Name" %> 
@@ -16,32 +17,47 @@
 	<!--[if IE 9]>
 	<p style="color:gray;">Ex: 555-555-1212</p>
 	<![endif]-->
-	<%= f.input :work_phone, :label => "Parent Work Phone", :placeholder => "555-555-1212" %>
+	<%= f.input :work_phone, :label => "Parent Cell Phone", :placeholder => "555-555-1212" %>
 	<!--[if IE 9]>
 	<p style="color:gray;">Ex: 555-555-1212</p>
 	<![endif]-->
+	<%= f.input :parent_texts_ok, :as => :boolean, :inline_label =>"Is it okay to send information through text messaging?" %>
 	<%= f.input :email, :label => "Parent Email" %>
 	<%= f.input :applicant_email, :label => "Student Email" %>
+	<%= f.input :after_graduation_plans, :label => "Upon graduation from high school, I plan to:", :collection => @grad_plans %>
+	<%= f.input :degree_plans, :label => "If you are planning to enroll in college, please indicate your intended major." %>
+	<div id="tracks">
+		<%= f.input :track, :label => "Please indicate your desired track of study.", :collection => ["Engineering", "Technology"], :as => :radio_buttons %>
+	</div>
+	<div id="trackdescription">
+        <p>
+			<strong>Engineering: </strong>Students are exposed to basic design analysis and engineering graphics.  Engineers are team leaders that plan, design and supervise engineering projects from concept to completion.  Engineers solve problems by relying on their creative and academic skills.  You should enjoy problem solving and be challenged by the effort it requires.  Students are required to complete Calculus by the time they graduate from high school.
+		</p>
+        	<strong>Technology: </strong>Students will be introduced to tools and techniques involving  manufacturing logistics, SAP (Systems, Applications and Products), engineering graphics, and many other topics that will allow students to earn certificates and experiences that are highly sought after by employers.  Engaging in technology supports working as part of a team focused on completing an operation or task.  Technology majors prepare for practical design and applied use of tools and techniques to manage projects and solve problems.  Students are required to complete Trigonometry by the time they graduate from high school.  
+		</p>
+	</div>
 	<hr />
 	<p>
 		Names of Teachers Completing Recommendations:
 		<%= f.input :math_teacher, :label => "Math:", :input_html => {:value => @applicant.math_teacher} %>
+		<%= f.input :math_teacher_email, :label => "Email" %>
 		<%= f.input :science_teacher, :label => "Science:", :input_html => {:value => @applicant.science_teacher} %>
+		<%= f.input :science_teacher_email, :label => "Email" %>
 		<%= f.input :english_teacher, :label => "English:", :input_html => {:value => @applicant.english_teacher} %>
+		<%= f.input :english_teacher_email, :label => "Email" %>
 		<%= f.input :teacher_contacted, :as => :boolean, :inline_label => "I verify that I have contacted 
 					the above teachers concerning these recommendations.", :label => "Teachers Contacted"%>
 	</p>
 	<hr />
 	<p class="confirm">
-		<%= f.input :applicant_confirmation, :as => :boolean, :inline_label => "The decision to apply to the Piedmont Governor's 
-			School for Mathematics, Science, and Technology is my own, and I want to participate fully in this program. I have read in 
+		<%= f.input :applicant_confirmation, :as => :boolean, :inline_label => "The decision to apply to the Academy for Engineering and Technology is my own, and I want to participate fully in this program. I have read in 
 			its entirety the application procedures, inculding the application forms, and am aware of the appeals process of my school 
 			division." %>
 	</p>
 	<p>
 		<%= f.input :parent_confirmation, :as => :boolean, :inline_label => "I, the parent/guardian of the above named student, am aware 
-			of and am in full support of the student's application to the Piedmont AET for Mathematics, Science, and Technology 
-			and give my permission for the student's academic records to be reviewed by the division's Selection Committee. I have read in 
+			of and am in full support of the student's application to the Academy for Engineering and Technology
+			and give my permission for the student's academic records to be reviewed by the Selection Committee. I have read in 
 			its entirety the application procedures, inculding the application forms, and am aware of the appeals process of my school 
 			division." %>
 	</p>

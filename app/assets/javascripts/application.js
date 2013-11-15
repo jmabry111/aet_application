@@ -39,6 +39,14 @@ $(function() {
 	$("#search_button").hide();
 })
 
-
-
+// show track descriptions on mouseover
+$(function() {
+	$(document).ready(function() {
+	    $('#tracks').hover(function() {
+	        $('#trackdescription').show();
+	    }, function() {
+	        $('#trackdescription').hide();
+	    });
+	});
+});
 

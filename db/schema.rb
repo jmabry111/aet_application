@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(:version => 20131115143417) do
     t.boolean  "teacher_contacted"
     t.boolean  "is_archived",                     :default => false
     t.string   "ethnicity"
-    t.boolean  "student_texts_ok?",               :default => false
-    t.boolean  "parent_texts_ok?",                :default => false
+    t.boolean  "student_texts_ok",                :default => false
+    t.boolean  "parent_texts_ok",                 :default => false
     t.string   "after_graduation_plans"
     t.string   "degree_plans"
     t.string   "track"

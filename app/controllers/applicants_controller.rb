@@ -6,6 +6,8 @@ class ApplicantsController < ApplicationController
   def new
     @applicant = Applicant.new
     @school = [School.list].flatten
+    @ethnicity = [Ethnicity.list].flatten
+    @grad_plans = [GradPlans.list].flatten
   end
 
   def create
