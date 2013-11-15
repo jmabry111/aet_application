@@ -1,13 +1,44 @@
+Hello,
 
-<%= @teacher_recommendation.applicant.first_name %> <%= @teacher_recommendation.applicant.last_name %> has submitted an application 
-to Piedmont AET for Math, Science, and Technology. 
+You have been asked to complete a recommendation for <%= @teacher_recommendation.applicant.first_name %> <%= @teacher_recommendation.applicant.last_name %>'s application into the <%= @teacher_recommendation.applicant.track %> curriculum of the Academy for Engineering and Technology (AET).  
 
-<%= @teacher_recommendation.applicant.first_name %> has indicated that he/she would like for you to complete a 
-Faculty Recommendation to be used as a reference in the application process. 
-Please visit the link below to complete the recommendation. 
+As a current or former teacher, you have the unique ability to give the selection committee additional insight into the student’s capabilities outside of what can be found during a review of their transcripts.  With this in mind, an overview of the AET program is provided below.  At the end of the overview, you will find a link to a secure website to complete the recommendation.  If you have any questions regarding the AET program or recommendation form, please feel free to contact any of the following:
 
-Please complete by <%= @teacher_recommendation.applicant.date_due.strftime("%m/%d/%Y") %>.
+Dr. Coray Davis				Mr. John Hatchett						[Name]
+AET Program Director  		AET Assistant Program Director			[IALR AET Faculty]
+(276)403-5647    			(276)403-5622							[Phone]
+cqdavis@vsu.edu				jhatchett@newcollegeinstitute.org 		[Email]
+
+
+AET Overview
+Through a partnership with Virginia State University (VSU), the New College Institute (NCI) created the Academy for Engineering and Technology starting with the 2012-2013 school year.  Students enrolled within the AET program will have the opportunity to choose between two tracks of study: engineering or technology.  Credits earned within either track are aligned such that they may transfer to ABET accredited universities upon successful completion of the program.
+
+Engineering:  Students are exposed to basic design analysis and engineering graphics.  Engineers are team leaders that plan, design and supervise engineering projects from concept to completion.  Engineers solve problems by relying on their creative and academic skills.  The successful student should enjoy problem solving and challenged by the effort it requires.  Students are required to complete Calculus by the time they graduate from high school.  
+
+Technology:  Students will be introduced to tools and techniques involving manufacturing logistics, SAP (Systems, Applications and Products), engineering graphics, and many other topics that will allow students to earn certificates and experiences that are highly sought after by employers.  Engaging in technology supports working as part of a team focused on completing an operation or task.  Technology majors prepare for practical design and applied use of tools and techniques to manage projects and solve problems.  Students are required to complete Trigonometry by the time they graduate from high school.  
+
+* The technology track is not currently offered at IALR for the 2014-2015 school year
+
+Experiential Learning:  Along with the academic courses offered with both tracks, students will participate in many experiential learning activities throughout the curriculum to apply their academic knowledge to on-the-job situations.  These include interactions (guest lectures) with individuals in career fields of engineering, technology and advanced manufacturing; exposures to high tech industry through onsite tours; and the opportunity for paid, hands-on internships with industry leaders of Southern Virginia and throughout the Commonwealth of Virginia.
+
+
+Core Requirements:  Students within the Academy for Engineering and Technology are expected to conduct themselves in a respectable and mature manner.  The successful student within the AET program will pride themselves in the following ways:
+
+	A.  Ability/Interest in hands-on application of classroom learning
+	B.  Demonstrates:
+•	Excellent attendance and conduct
+•	Enthusiasm in learning at the university level
+•	Focus on note-taking
+•	Works well both individually and in group settings
+•	Excellent analytical and communication skills
+•	Ability to be a self-starter
+
+C.  Passion/aptitude for math, problem solving, and technology usage
+D.  Self-accountable for college level behavior
+
 
 <%= edit_teacher_recommendation_url(@teacher_recommendation) %> 
+
+Please submit your recommendation no later than April 24, 2014
 
 Thank you!
