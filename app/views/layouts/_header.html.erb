@@ -5,9 +5,6 @@
        <nav>
          <ul class="nav pull-right">
 			<% if signed_in? %>	
-				<%if current_user.is_admin?  %>		
-					<li><%= link_to "Schools", schools_path %></li>
-				<% end %>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						Applicants <b class="caret"></b>

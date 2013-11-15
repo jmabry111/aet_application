@@ -37,6 +37,9 @@ textarea{
 		margin-bottom:10px;
 	}
 }
+input[type="text"], input[type="password"], input[type="email"]{
+	padding:0;
+}
 
 /* typography */
 
