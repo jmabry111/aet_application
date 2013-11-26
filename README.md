@@ -1,5 +1,8 @@
 # General
 
+[AET Staging](http://aet-staging.newcollegeinstitute.org/)
+[AET Production](http://aet-application.newcollegeinstitute.org)
+
 # Set up
 ````bash
 rake db:create
@@ -35,15 +38,16 @@ t.update_attribute('email',t.email)
 # Open and close system for submitting applications
 Production:
 ````bash
-heroku config:set REGISTRATION_OPEN='true' --app pgsapplication
-heroku config:set REGISTRATION_OPEN='false' --app pgsapplication
+heroku config:set REGISTRATION_OPEN='true' --app aet-application
+heroku config:set REGISTRATION_OPEN='false' --app aet-application
 ````
 Staging:
 ````bash
-heroku config:set REGISTRATION_OPEN='true' --app application-staging
-heroku config:set REGISTRATION_OPEN='false' --app application-staging
+heroku config:set REGISTRATION_OPEN='true' --app aet-staging
+heroku config:set REGISTRATION_OPEN='false' --app aet-staging
 ````
 Development:
+This needs to be done in the terminal session that will run the rails server.
 ````bash
 export REGISTRATION_OPEN='true'
 export REGISTRATION_OPEN='false'
@@ -52,21 +56,21 @@ export REGISTRATION_OPEN='false'
 # Drop staging database
 Find Database Name
 ````bash
-heroku addons --app application-staging | grep POSTGRES
+heroku addons --app aet-staging | grep POSTGRES
 ````
 Drop Database
 ````bash
-heroku pg:reset HEROKU_POSTGRESQL_ORANGE --confirm application-staging
+heroku pg:reset HEROKU_POSTGRESQL_PINK --confirm aet-staging
 ````
 Migrate
 ````bash
-heroku run rake db:migrate --app application-staging
+heroku run rake db:migrate --app aet-staging
 ````
 Seed
 ````bash
-heroku run rake db:seed --app application-staging
+heroku run rake db:seed --app aet-staging
 ````
 Populate w/ fake data
 ````bash
-heroku run rake db:populate --app application-staging
+heroku run rake db:populate --app aet-staging
 ````
