@@ -26,11 +26,11 @@ AETApplication::Application.routes.draw do
   
   root to: 'static_pages#info'
   
-  match '/mission', to: 'static_pages#mission'
+  match '/program', to: 'static_pages#program'
   
-  match '/how', to: 'static_pages#how'
+  match '/overview', to: 'static_pages#overview'
   
-  match 'instructions', to: 'static_pages#instructions'
+  match 'requirements', to: 'static_pages#requirements'
   
   match 'thank_you', to: 'static_pages#thank_you'
   

@@ -21,8 +21,11 @@ class Applicant < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, allow_blank:true,  format: {with:VALID_EMAIL_REGEX}
   validates :math_teacher, presence:true, length: {maximum: 50}
+  validates :math_teacher_email, presence:true,  format: {with:VALID_EMAIL_REGEX}
   validates :science_teacher, presence:true, length: {maximum: 50}
+  validates :science_teacher_email, presence:true,  format: {with:VALID_EMAIL_REGEX}
   validates :english_teacher, presence:true, length: {maximum: 50}
+  validates :english_teacher_email, presence:true,  format: {with:VALID_EMAIL_REGEX}
   validates :applicant_confirmation, presence:true, on: :create
   validates :parent_confirmation, presence:true, on: :create
   validates :school_phone, allow_blank:true, format: {with:VALID_PHONE_REGEX}, on: :update
@@ -35,6 +38,8 @@ class Applicant < ActiveRecord::Base
   VALID_GPA_REGEX = /^[0]|[0-3]\.(\d?\d?)|[4].[0]$/
   validates :gpa, presence:true, format: {with:VALID_GPA_REGEX}, on: :update
   validates :teacher_contacted, presence:true, on: :create
+  validates :parent_texts_ok, presence:true, on: :create
+  validates :track, presence: true, on: :create
   
   
 
