@@ -1,29 +1,28 @@
 <%= simple_form_for @applicant do |f| -%>
 	<%= render 'shared/error_messages', object: f.object %>
-	<%= f.association :school %>
 	<%= f.input :first_name, :label => "First Name"  %> 
 	<%= f.input :middle_name, :label => "Middle Name"  %>
 	<%= f.input :last_name, :label => "Last Name" %>
-	<%= f.input :ethnicity, :collection => @ethnicity %>
-	<%= f.input :gender, :collection => ["Male", "Female"], :as => :radio_buttons, :item_wrapper_class => :inline %>
-	<%= f.input :grade, :collection => ["11", "12"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+	<%= f.association :school %>
 	<%= f.input :parent_first_name, :label => "Parent/Guardian First Name" %> 
 	<%= f.input :parent_last_name, :label => "Parent/Guardian Last Name" %>
-	<%= f.input :address, :label => "Parent Street Address" %>
+	<%= f.input :address, :label => "Street Address" %>
 	<%= f.input :city %>
 	<%= f.input :state, :input_html => {:maxlength => 2, :value => "VA"} %>
 	<%= f.input :zip, :label => "5 Digit Zip Code", :input_html => {:maxlength => 5} %>
-	<%= f.input :home_phone, :label => "Parent Home Phone", :placeholder => "555-555-1212" %>
+	<%= f.input :home_phone, :label => "Home Phone", :placeholder => "555-555-1212" %>
 	<!--[if IE 9]>
 	<p style="color:gray;">Ex: 555-555-1212</p>
 	<![endif]-->
-	<%= f.input :work_phone, :label => "Parent Cell Phone", :placeholder => "555-555-1212" %>
+	<%= f.input :work_phone, :label => "Cell Phone", :placeholder => "555-555-1212" %>
 	<!--[if IE 9]>
 	<p style="color:gray;">Ex: 555-555-1212</p>
 	<![endif]-->
-	<%= f.input :parent_texts_ok, :as => :boolean, :inline_label =>"Is it okay to send information through text messaging?" %>
+	<%= f.input :parent_texts_ok, label: false, :inline_label =>"Is it okay to send information through text messaging?" %>
 	<%= f.input :email, :label => "Parent Email" %>
 	<%= f.input :applicant_email, :label => "Student Email" %>
+	<%= f.input :ethnicity, :collection => @ethnicity %>
+	<%= f.input :gender, :collection => ["Male", "Female"], :as => :radio_buttons, :item_wrapper_class => :inline %>
 	<%= f.input :after_graduation_plans, :label => "Upon graduation from high school, I plan to:", :collection => @grad_plans %>
 	<%= f.input :degree_plans, :label => "If you are planning to enroll in college, please indicate your intended major." %>
 	<div id="tracks">
@@ -36,6 +35,7 @@
         	<strong>Technology: </strong>Students will be introduced to tools and techniques involving  manufacturing logistics, SAP (Systems, Applications and Products), engineering graphics, and many other topics that will allow students to earn certificates and experiences that are highly sought after by employers.  Engaging in technology supports working as part of a team focused on completing an operation or task.  Technology majors prepare for practical design and applied use of tools and techniques to manage projects and solve problems.  Students are required to complete Trigonometry by the time they graduate from high school.  
 		</p>
 	</div>
+	<%= f.input :additional_academic_info, :label => "Additional academic information you would like to include:", as: :text, :input_html => { :rows => 6 } %>
 	<hr />
 	<p>
 		Names of Teachers Completing Recommendations:
@@ -45,17 +45,17 @@
 		<%= f.input :science_teacher_email, :label => "Email:", :input_html => {:value => @applicant.science_teacher_email} %>
 		<%= f.input :english_teacher, :label => "English:", :input_html => {:value => @applicant.english_teacher} %>
 		<%= f.input :english_teacher_email, :label => "Email:", :input_html => {:value => @applicant.english_teacher_email} %>
-		<%= f.input :teacher_contacted, :as => :boolean, :inline_label => "I verify that I have contacted 
-					the above teachers concerning these recommendations.", :label => "Teachers Contacted"%>
+		<%= f.input :teacher_contacted, label: false, :as => :boolean, :inline_label => "I verify that I have contacted 
+					the above teachers concerning these recommendations." %>
 	</p>
 	<hr />
 	<p class="confirm">
-		<%= f.input :applicant_confirmation, :as => :boolean, :inline_label => "The decision to apply to the Academy for Engineering and Technology is my own, and I want to participate fully in this program. I have read in 
+		<%= f.input :applicant_confirmation, label: false, :as => :boolean, :inline_label => "The decision to apply to the Academy for Engineering and Technology is my own, and I want to participate fully in this program. I have read in 
 			its entirety the application procedures, inculding the application forms, and am aware of the appeals process of my school 
 			division." %>
 	</p>
 	<p>
-		<%= f.input :parent_confirmation, :as => :boolean, :inline_label => "I, the parent/guardian of the above named student, am aware 
+		<%= f.input :parent_confirmation, label: false, :as => :boolean, :inline_label => "I, the parent/guardian of the above named student, am aware 
 			of and am in full support of the student's application to the Academy for Engineering and Technology
 			and give my permission for the student's academic records to be reviewed by the Selection Committee. I have read in 
 			its entirety the application procedures, inculding the application forms, and am aware of the appeals process of my school 
