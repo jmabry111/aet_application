@@ -103,6 +103,7 @@ FactoryGirl.define do
     zip {Faker::Address.zip_code}
     home_phone {"5555551212"}
     work_phone {"5555551212"}
+    track {"Engineering"}
     math_teacher {Faker::Name.name}
     math_teacher_email {Faker::Internet.email}
     science_teacher {Faker::Name.name}
