@@ -1,8 +1,8 @@
 class Applicant < ActiveRecord::Base
   attr_accessible :address, :email, :english_teacher, :first_name, :gender, :grade, :home_phone, :last_name, 
     :math_teacher, :middle_name, :parent_first_name, :parent_last_name, :school_id, :science_teacher, :work_phone,
-    :school_phone, :counselor_name, :due_to, :date_due, :english_teacher_email, :science_teacher_email, :math_teacher_email, 
-    :applicant_confirmation, :parent_confirmation, :applicant_email, :city, :state, :zip, :gpa, :teacher_contacted, :is_archived, :school
+    :school_phone, :counselor_name, :due_to, :date_due, :english_teacher_email, :science_teacher_email, :math_teacher_email, :applicant_confirmation, :parent_confirmation, :applicant_email, :city, :state, :zip, :gpa, :teacher_contacted, :is_archived, :school, :parent_texts_ok, :ethnicity, :after_graduation_plans, :degree_plans, :additional_academic_info, :engineering_essay, :interests_essay
+    
   belongs_to :school
   has_many :teacher_recommendations
   
@@ -11,7 +11,6 @@ class Applicant < ActiveRecord::Base
   validates :school, presence:true
   validates :first_name, presence:true, length: {maximum: 25}
   validates :last_name, presence:true, length: {maximum: 25}
-  validates :grade, presence:true
   validates :parent_first_name, presence:true, length: {maximum: 25}
   validates :parent_last_name, presence:true, length: {maximum: 25}
   validates :address, presence:true

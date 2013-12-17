@@ -1,47 +1,163 @@
 <%= provide(:title, @applicant.last_name) %>
 <div class="row">
-  <div class="span6 offset3">
+  <div class="span8 offset2">
 	<%= simple_form_for @applicant, :url => coordinator_applicant_path do |f| -%>
 		<%= render 'shared/error_messages', object: f.object %>
-		<h4>ID: <%= @applicant.id %></h4>
-		<%= f.input :first_name, :label => "First Name", :input_html => {:value => @applicant.first_name} %>
-		<%= f.input :middle_name, :label => "Middle Name", :input_html => {:value => @applicant.middle_name}  %>
-		<%= f.input :last_name, :label => "Last Name", :input_html => {:value => @applicant.last_name} %>
-		<%= f.input :gender, :collection => ["Male", "Female"], :as => :radio_buttons, :input_html => {:value => @applicant.gender}, 
-			:item_wrapper_class => :inline %>
-		<%= f.input :grade,:collection => ["11", "12"], :as => :radio_buttons, :label => "Grade", :input_html => {:value => @applicant.grade},
-		 	:item_wrapper_class => :inline%>
-		<%= f.input :parent_first_name, :label => "Parent/Guardian First Name", :input_html => {:value => @applicant.parent_first_name} %> 
-		<%= f.input :parent_last_name, :label => "Parent/Guardian Last Name", :input_html => {:value => @applicant.parent_last_name} %>
-		<%= f.input :address, :label => "Street Address", :input_html => {:value => @applicant.address} %>
-		<%= f.input :city, :label => "City", :input_html => {:value => @applicant.city} %>
-		<%= f.input :state, :label => "State", :input_html => {:value => @applicant.state, :maxlength => 2} %>
-		<%= f.input :zip, :label => "5 Digit Zip", :input_html => {:value => @applicant.zip, :maxlength => 5} %>
-		<%= f.input :home_phone, :label => "Home Phone", :input_html => {:value => @applicant.home_phone} %>
-		<%= f.input :work_phone, :label => "Work Phone", :input_html => {:value => @applicant.work_phone} %>
-		<%= f.input :email, :label => "Parent Email", :input_html => {:value => @applicant.email} %>
-		<%= f.input :applicant_email, :label => "Student Email", :input_html => {:value => @applicant.applicant_email} %>
+		<div class="row">
+			<div class="span8"><h4>ID: <%= @applicant.id %></h4></div>
+		</div>
+		<div class="row">
+			<div class="span3">
+				<%= f.input :first_name, :label => "First Name", :input_html => {:value => @applicant.first_name} %>
+			</div>
+			<div class="span2">
+				<%= f.input :middle_name, :label => "Middle Name", :input_html => {:value => @applicant.middle_name}  %>
+			</div>
+			<div class="span3">
+				<%= f.input :last_name, :label => "Last Name", :input_html => {:value => @applicant.last_name} %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span8"><strong>School: <%= @applicant.school.name %></strong></div>
+		</div>
+		<div class="row">
+			<div class="span4">
+				<%= f.input :parent_first_name, :label => "Parent/Guardian First Name", :input_html => {:value => @applicant.parent_first_name} %> 
+			</div>
+			<div class="span4">
+				<%= f.input :parent_last_name, :label => "Parent/Guardian Last Name", :input_html => {:value => @applicant.parent_last_name} %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span8">
+				<%= f.input :address, :label => "Street Address", :input_html => {:value => @applicant.address} %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4">
+				<%= f.input :city, :label => "City", :input_html => {:value => @applicant.city} %>
+			</div>
+			<div class="span2">
+				<%= f.input :state, :label => "State", :input_html => {:value => @applicant.state, :maxlength => 2} %>
+			</div>
+			<div class="span2">
+				<%= f.input :zip, :label => "5 Digit Zip", :input_html => {:value => @applicant.zip, :maxlength => 5} %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4">
+				<%= f.input :home_phone, :label => "Home Phone", :input_html => {:value => @applicant.home_phone} %>
+			</div>
+			<div class="span4">
+				<%= f.input :work_phone, :label => "Work Phone", :input_html => {:value => @applicant.work_phone} %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span8">
+				<%= f.input :parent_texts_ok, label: false, :inline_label =>"Is it okay to send information through text messaging?", :input_html => {:value => @applicant.parent_texts_ok} %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4">
+				<%= f.input :email, :label => "Parent Email", :input_html => {:value => @applicant.email} %>
+			</div>
+			<div class="span4">
+				<%= f.input :applicant_email, :label => "Student Email", :input_html => {:value => @applicant.applicant_email} %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4">
+				<%= f.input :ethnicity, :collection => @ethnicity, :input_html => {:value => @applicant.ethnicity} %>
+			</div>
+			<div class="span4">
+				<%= f.input :gender, :collection => ["Male", "Female"], :as => :radio_buttons, :input_html => {:value => @applicant.gender}, :item_wrapper_class => :inline %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span8">
+				<%= f.input :after_graduation_plans, :label => "Upon graduation from high school, I plan to:", :collection => @grad_plans, :input_html => {:value => @applicant.after_graduation_plans} %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span8">
+				<%= f.input :degree_plans, :label => "If you are planning to enroll in college, please indicate your intended major.", :input_html => {:value => @applicant.degree_plans} %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span8">
+				<%= f.input :track, :label => "Desired track of study", :collection => ["Engineering", "Technology"], :as => :radio_buttons, :input_html => {:value => @applicant.track}, :item_wrapper_class => :inline %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span8">	
+				<%= f.input :additional_academic_info, :label => "Additional academic information:", as: :text, :input_html => { :rows => 6, :value => @applicant.additional_academic_info } %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span8 essays">
+				<strong>Essay #1:</strong><br />
+				<%= simple_format @applicant.engineering_essay %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span8 essays">
+				<strong>Essay #2:</strong><br />
+				<%= simple_format @applicant.interests_essay %>
+			</div>
+		</div>
 	<hr />
-	<p>
-		Names of Teachers Completing Recommendations:
-		<%= f.input :math_teacher, :label => "Math:", :input_html => {:value => @applicant.math_teacher} %>
-		<%= f.input :science_teacher, :label => "Science:", :input_html => {:value => @applicant.science_teacher} %>
-		<%= f.input :english_teacher, :label => "English:", :input_html => {:value => @applicant.english_teacher} %>
-	</p>
-  </div>
-<div class="span6 offset3">
-		<h3>School: <%= @applicant.school.name %></h3><br /><br />
-		<%= f.input :school_phone, :label => "School Phone", :placeholder => "555-555-1212" %>
-		<%= f.input :counselor_name, :label => "Name of Guidance Counselor Designee" %>
-		<%= f.input :gpa, :label => "Unweighted GPA", :input_html => {:type => :text, :pattern => "[0-9]*", 
-					:maxlength => 4, :value => @applicant.gpa} %>
-		<p>
-			Please attach an official copy of the student's transcript and an official copy of most 
-			recent standardized test data.
-		</p>
-		<%= f.input :due_to, :label => "Information due to" %>
-		<%= f.input :date_due, :as => :string, :label => "Date Due"%>
-		<%= f.submit "Submit school information", class: "btn btn-large" %>
+	<strong>Teachers Completing Recommendations:</strong>
+	<div class="row">
+		<div class="span4">
+			<%= f.input :math_teacher, :label => "Math Faculty Member Name:", :input_html => {:value => @applicant.math_teacher} %>
+		</div>
+		<div class="span4">
+			<%= f.input :math_teacher_email, :label => "Email:", :input_html => {:value => @applicant.math_teacher_email} %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span4">	
+			<%= f.input :science_teacher, :label => "Science Faculty Member Name:", :input_html => {:value => @applicant.science_teacher} %>
+		</div>
+		<div class="span4">
+			<%= f.input :science_teacher_email, :label => "Email:", :input_html => {:value => @applicant.science_teacher_email} %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span4">	
+			<%= f.input :english_teacher, :label => "Additional Faculty Member Name:", :input_html => {:value => @applicant.english_teacher} %>
+		</div>
+		<div class="span4">
+			<%= f.input :english_teacher_email, :label => "Email:", :input_html => {:value => @applicant.english_teacher_email} %>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="span8"><h4>Counselor Portion:</h4></div>
+	</div>
+	<div class="row">
+		<div class="span5">
+			<%= f.input :counselor_name, :label => "Guidance Counselor Name", :input_html => {:value => @applicant.counselor_name} %>
+		</div>
+		<div class="span3">
+			<%= f.input :school_phone, :label => "School Phone", :placeholder => "555-555-1212", :input_html => {:value => @applicant.school_phone} %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span2">
+			<%= f.input :gpa, :label => "Unweighted GPA", :input_html => {:type => :text, :pattern => "[0-9]*", 
+						:maxlength => 4, :value => @applicant.gpa} %>
+		</div>
+		<div class="span6">
+			<strong><i class="fa fa-exclamation-circle"></i>Please attach an official copy of the student's transcript and an official copy of most recent standardized test data.</strong>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span8"><%= f.input :date_due, :as => :string, :label => "Date Due"%></div>
+	</div>
+	<div class="row">
+		<div class="span8 text-center"><%= f.submit "Submit school information", class: "btn btn-large" %></div>
+	</div>
 	<% end %>
 	<br /><br /><br />
 </div>

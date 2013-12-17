@@ -20,6 +20,7 @@ class Coordinator::ApplicantsController < ApplicationController
 
   def edit
     @applicant = find_applicant_or_redirect
+    @ethnicity = [Ethnicity.list].flatten
   end
 
   def update

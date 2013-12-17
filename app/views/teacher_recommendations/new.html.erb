@@ -35,6 +35,11 @@
 					:label => "Is self-disciplined in establishing and reaching goals"
 				%>
 				<%= 
+					f.input :self_starter, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline, 
+					:label => "Is a self-starter when it comes to note-taking and assignments"
+				%>
+				<%= 
 					f.input :interaction, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
 					:item_wrapper_class => :inline,
 					:label => "Interacts well with other students and teachers"
@@ -53,6 +58,11 @@
 					f.input :study_skills, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
 					:item_wrapper_class => :inline,
 					:label => "Demonstrates outstanding study skills and work habits"
+				%>
+				<%= 
+					f.input :written_work, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+					:label => "Produces exceptional written work"
 				%>
 				<%= 
 					f.input :time_management, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 

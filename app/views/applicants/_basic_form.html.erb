@@ -1,4 +1,4 @@
-<%= simple_form_for @applicant do |f| -%>
+<%= simple_form_for @applicant, html: {id: :applicant_form} do |f| -%>
 	<%= render 'shared/error_messages', object: f.object %>
 	<div class="row">
 		<div class="span3"><%= f.input :first_name, :label => "First Name"  %></div> 
@@ -6,7 +6,7 @@
 		<div class="span3"><%= f.input :last_name, :label => "Last Name" %></div> 
 	</div>
 	<div class="row">
-		<div class="span8"><%= f.association :school %></div>
+		<div class="span8"><%= f.association :school, :input_html => { :id => "schoolchoice" }%></div>
 	</div>
 	<div class="row">
 		<div class="span4"><%= f.input :parent_first_name, :label => "Parent/Guardian First Name" %></div>
@@ -57,7 +57,7 @@
 			<%= f.input :degree_plans, :label => "If you are planning to enroll in college, please indicate your intended major." %>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row" id="trackofstudy">
 		<div class="span8">
 			<div id="tracks">
 				<%= f.input :track, :label => "Please indicate your desired track of study.", :collection => ["Engineering", "Technology"], :as => :radio_buttons %>
@@ -69,8 +69,9 @@
 		        	<strong>Technology: </strong>Students will be introduced to tools and techniques involving  manufacturing logistics, SAP (Systems, Applications and Products), engineering graphics, and many other topics that will allow students to earn certificates and experiences that are highly sought after by employers.  Engaging in technology supports working as part of a team focused on completing an operation or task.  Technology majors prepare for practical design and applied use of tools and techniques to manage projects and solve problems.  Students are required to complete Trigonometry by the time they graduate from high school.  
 				</p>
 			</div>
+			<strong class="offset0-2"><i class="fa fa-exclamation-circle"></i> The technology track is not currently offered at IALR for the 2014-2015 school year.</strong>
 		</div>
-	</div>
+	</div><br />
 	<div class="row">
 		<div class="span8">	
 			<%= f.input :additional_academic_info, :label => "Additional academic information you would like to include:", as: :text, :input_html => { :rows => 6 } %>
