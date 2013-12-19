@@ -60,16 +60,16 @@
   <hr />
 	<h2>Applicant Submitted Section</h2>
 	<hr />
-	<table class="noborder" style="width:100%;">
+	<table class="noborder full-width">
 		<tr class="noborder">
-			<td class="noborder" style="width:50%;">
+			<td class="noborder half-width">
 				Name of Applicant: <%= @applicant.first_name %> <%= @applicant.middle_name %> <%= @applicant.last_name %>
 			</td>
-			<td class="noborder" style="width:50%;">Gender: <%= @applicant.gender %></td>
+			<td class="noborder half-width">Gender: <%= @applicant.gender %></td>
 		</tr>
 		<tr class="noborder">
-			<td class="noborder" style="width:50%;">High School: <%= @applicant.school.name %><br /><br /></td>
-			<td class="noborder" style="width:50%;">Grade Level: <%= @applicant.grade %><br /><br /></td>
+			<td class="noborder half-width">High School: <%= @applicant.school.name %><br /><br /></td>
+			<td class="noborder half-width">Grade Level: <%= @applicant.grade %><br /><br /></td>
 		</tr>
 		<tr class="noborder">
 			<td class="noborder" colspan="2">
@@ -80,7 +80,7 @@
 			<td class="noborder" colspan="2">
 				<table class="noborder">
 					<tr class="noborder">
-						<td style="vertical-align:top;" class="noborder">
+						<td class="noborder top-align">
 							Home Address:
 						</td>
 						<td class="noborder"> 
@@ -92,10 +92,10 @@
 			</td>
 		</tr>
 		<tr class="noborder">
-			<td class="noborder" style="width:50%;">
+			<td class="noborder half-width">
 				Home Phone: <%= number_to_phone(@applicant.home_phone, :area_code => true) %>
 			</td>
-			<td class="noborder" style="width:50%;">
+			<td class="noborder half-width">
 				Work Phone: <%= number_to_phone(@applicant.work_phone, :area_code => true) %>
 			</td>
 		</tr>
@@ -126,13 +126,13 @@
 	</table>
 	<hr />
 	<h4>
-		I, <span style="text-decoration:underline;"><%= @applicant.first_name %> <%= @applicant.middle_name %> 
+		I, <span class="underline"><%= @applicant.first_name %> <%= @applicant.middle_name %> 
 		<%= @applicant.last_name %></span>, have agreed that the decision to apply to the Academy for Engineering and Technology is my own, and I want to participate fully in this program. I have 
 		read in its entirety the application procedures, inculding the application forms, and am aware of the appeals 
 		process of my school division.
 	</h4>
 	<h4>
-		I, <span style="text-decoration:underline;"><%= @applicant.parent_first_name %> <%= @applicant.parent_last_name %>
+		I, <span class="underline"><%= @applicant.parent_first_name %> <%= @applicant.parent_last_name %>
 		</span>, am aware of and am in full support of the student's application to the Academy for Engineering and Technology and give my permission for the student's academic records to be reviewed 
 		by the division's Selection Committee. I have read in its entirety the application procedures, inculding the 
 		application forms, and am aware of the appeals process of my school division.
@@ -142,7 +142,7 @@
   <div class="span9 offset2">
 	<h2>Gifted Coordinator/Guidance Counselor Submitted Section</h2>
 	<hr />
-	<table class="noborder" style="width:100%;">
+	<table class="noborder full-width">
 		<tr class="noborder">
 			<td class="noborder">
 					High School: <%= @applicant.school.name %> 
@@ -180,9 +180,9 @@
 			</td>
 		</tr>
 	</table>
-	<p style="font-weight:bold;">
-		Please attach an official copy of the student's transcript and an official copy of most 
-		recent standardized test data.
+	<p>
+		<strong>Please attach an official copy of the student's transcript and an official copy of most 
+				recent standardized test data.</strong>
 	</p>
   </div>
 </div>

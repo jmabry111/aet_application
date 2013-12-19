@@ -1,13 +1,13 @@
 <%= paginate @applicants %>
 
-<table id="applicants" class="table table-hover" style="width:85%">
+<table id="applicants" class="table table-hover eighty-five-width">
 	<thead>
 	<tr>
-		<th style="width:8%">ID</th>
+		<th class="eight-width">ID</th>
 		<th><%= sortable "last_name", "Name" %></th>
 		<th><%= sortable "name", "School" %></th>
-		<th style="width:10%">Counselor<br />Portion</th>
-		<th style="width:10%">Completed<br />Recommendations</th>
+		<th class="ten-width">Counselor<br />Portion</th>
+		<th class="ten-width">Completed<br />Recommendations</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -18,14 +18,14 @@
 					<td><%= applicant.id %></td>
 					<td><%= link_to applicant, coordinator_applicant_path(applicant) %></td>
 					<td><%= applicant.school.name %></td>
-					<td style="text-align:center;"><%= image_tag("check.png") %></td>
-					<td style="text-align:center;"><%= applicant.count_recommendations %></td>
+					<td class="text-center"><%= image_tag("check.png") %></td>
+					<td class="text-center"><%= applicant.count_recommendations %></td>
 				<% else %>
 					<td><%= applicant.id %></td>
 					<td><%= link_to applicant, edit_coordinator_applicant_path(applicant) %></td>
 					<td><%= applicant.school.name %></td>
-					<td style="text-align:center;"><%= image_tag("x.png") %></td>
-					<td style="text-align:center;"><%= applicant.count_recommendations %></td>
+					<td class="text-center"><%= image_tag("x.png") %></td>
+					<td class="text-center"><%= applicant.count_recommendations %></td>
 				<% end %>		
 			</tr>
 		<% end %>
@@ -40,7 +40,7 @@
 
 <% if current_user.is_admin? %>
 	<div class="row">
-		<div class="span4 offset4" style="margin-top:30px;">
+		<div class="span4 offset4 move-down30">
 				<%= button_to "Archive All Current Students", {:controller => "archives", :action => "create"}, {class: "btn"} %>
 		</div>
 	</div>
