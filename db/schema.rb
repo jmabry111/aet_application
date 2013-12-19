@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131217153130) do
+ActiveRecord::Schema.define(:version => 20131219151102) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -101,6 +101,12 @@ ActiveRecord::Schema.define(:version => 20131217153130) do
     t.string   "additional_academic_info"
     t.text     "engineering_essay"
     t.text     "interests_essay"
+    t.integer  "psat_english"
+    t.integer  "psat_math"
+    t.integer  "vpt_english"
+    t.integer  "vpt_math"
+    t.integer  "essay1_score"
+    t.integer  "essay2_score"
   end
 
   create_table "delayed_jobs", :force => true do |t|

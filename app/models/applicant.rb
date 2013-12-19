@@ -1,7 +1,7 @@
 class Applicant < ActiveRecord::Base
   attr_accessible :address, :email, :english_teacher, :first_name, :gender, :grade, :home_phone, :last_name, 
     :math_teacher, :middle_name, :parent_first_name, :parent_last_name, :school_id, :science_teacher, :work_phone,
-    :school_phone, :counselor_name, :due_to, :date_due, :english_teacher_email, :science_teacher_email, :math_teacher_email, :applicant_confirmation, :parent_confirmation, :applicant_email, :city, :state, :zip, :gpa, :teacher_contacted, :is_archived, :school, :parent_texts_ok, :ethnicity, :after_graduation_plans, :degree_plans, :additional_academic_info, :engineering_essay, :interests_essay
+    :school_phone, :counselor_name, :due_to, :date_due, :english_teacher_email, :science_teacher_email, :math_teacher_email, :applicant_confirmation, :parent_confirmation, :applicant_email, :city, :state, :zip, :gpa, :teacher_contacted, :is_archived, :school, :parent_texts_ok, :ethnicity, :after_graduation_plans, :degree_plans, :additional_academic_info, :engineering_essay, :interests_essay, :track, :psat_math, :psat_english, :vpt_math, :vpt_english, :essay1_score, :essay2_score
     
   belongs_to :school
   has_many :teacher_recommendations
@@ -37,7 +37,6 @@ class Applicant < ActiveRecord::Base
   VALID_GPA_REGEX = /^[0]|[0-3]\.(\d?\d?)|[4].[0]$/
   validates :gpa, presence:true, format: {with:VALID_GPA_REGEX}, on: :update
   validates :teacher_contacted, presence:true, on: :create
-  validates :parent_texts_ok, presence:true, on: :create
   validates :track, presence: true, on: :create
   validates :engineering_essay, presence: true, on: :create
   validates :interests_essay, presence: true, on: :create

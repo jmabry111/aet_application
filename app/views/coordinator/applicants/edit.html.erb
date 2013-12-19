@@ -123,7 +123,7 @@
 			<%= f.input :science_teacher_email, :label => "Email:", :input_html => {:value => @applicant.science_teacher_email} %>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row" id="counselor">
 		<div class="span4">	
 			<%= f.input :english_teacher, :label => "Additional Faculty Member Name:", :input_html => {:value => @applicant.english_teacher} %>
 		</div>
@@ -144,16 +144,55 @@
 		</div>
 	</div>
 	<div class="row">
+		<div class="span4"><strong>PSAT Scores:</strong></div>
+	</div>
+	<div class="row">
+		<div class="span2">
+			<%= f.input :psat_math, :label => "Math:", :input_html => {:type => :text, :pattern => "[0-9]*", 
+						:maxlength => 2, :value => @applicant.psat_math} %>
+		</div>
+		<div class="span2 offset2">
+			<%= f.input :psat_english, :label => "Critical Reading:", :input_html => {:type => :text, :pattern => "[0-5]", 
+						:maxlength => 2, :value => @applicant.psat_english} %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span4"><strong>VPT Scores:</strong></div>
+	</div>
+	<div class="row">
+		<div class="span2">
+			<%= f.input :vpt_math, :label => "Math:", :input_html => {:type => :text, :pattern => "[0-9]*", 
+						:maxlength => 4, :value => @applicant.vpt_math} %>
+		</div>
+		<div class="span2 offset2">
+			<%= f.input :vpt_english, :label => "English:", :input_html => {:type => :text, :pattern => "[0-5]", 
+						:maxlength => 1, :value => @applicant.vpt_english} %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span8"><strong>Essay Scores (Content and Style)</strong></div>
+	</div>
+	<div class="row">
+		<div class="span2">
+			<%= f.input :essay1_score, :label => "Essay 1:", :input_html => {:type => :text, :pattern => "[1-5]", 
+						:maxlength => 1, :value => @applicant.essay1_score} %>
+		</div>
+		<div class="span2 offset2">
+			<%= f.input :essay2_score, :label => "Essay 2:", :input_html => {:type => :text, :pattern => "[1-5]", 
+						:maxlength => 1, :value => @applicant.essay2_score} %>
+		</div>
+	</div>
+	<div class="row">
 		<div class="span2">
 			<%= f.input :gpa, :label => "Unweighted GPA", :input_html => {:type => :text, :pattern => "[0-9]*", 
 						:maxlength => 4, :value => @applicant.gpa} %>
 		</div>
 		<div class="span6">
-			<strong><i class="fa fa-exclamation-circle"></i>Please attach an official copy of the student's transcript and an official copy of most recent standardized test data.</strong>
+			<strong><i class="fa fa-exclamation-circle"></i> Please attach an official copy of the student's transcript and an official copy of most recent standardized test data.</strong>
 		</div>
 	</div>
 	<div class="row">
-		<div class="span8"><%= f.input :date_due, :as => :string, :label => "Date Due"%></div>
+		<div class="span3"><%= f.input :date_due, :as => :string, :label => "Date Due"%></div>
 	</div>
 	<div class="row">
 		<div class="span8 text-center"><%= f.submit "Submit school information", class: "btn btn-large" %></div>

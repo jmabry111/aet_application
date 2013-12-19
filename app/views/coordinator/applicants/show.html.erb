@@ -91,7 +91,7 @@
 						</td>
 						<td class="noborder"> 
 							<%= @applicant.address %><br />
-							<%= @applicant.city %>, <%= @applicant.state %> <%= @applicant.zip %><br />			              
+							<%= @applicant.city %>, <%= @applicant.state %> <%= @applicant.zip %><br />
 						</td>
 					</tr>
 				</table>
@@ -133,15 +133,13 @@
 	<hr />
 	<h4>
 		I, <span style="text-decoration:underline;"><%= @applicant.first_name %> <%= @applicant.middle_name %> 
-		<%= @applicant.last_name %></span>, have agreed that the decision to apply to the Piedmont AET 
-		for Mathematics, Science, and Technology is my own, and I want to participate fully in this program. I have 
+		<%= @applicant.last_name %></span>, have agreed that the decision to apply to the Academy for Engineering and Technology is my own, and I want to participate fully in this program. I have 
 		read in its entirety the application procedures, inculding the application forms, and am aware of the appeals 
 		process of my school division.
 	</h4>
 	<h4>
 		I, <span style="text-decoration:underline;"><%= @applicant.parent_first_name %> <%= @applicant.parent_last_name %>
-		</span>, am aware of and am in full support of the student's application to the Piedmont AET for 
-		Mathematics, Science, and Technology and give my permission for the student's academic records to be reviewed 
+		</span>, am aware of and am in full support of the student's application to the Academy for Engineering and Technology and give my permission for the student's academic records to be reviewed 
 		by the division's Selection Committee. I have read in its entirety the application procedures, inculding the 
 		application forms, and am aware of the appeals process of my school division.
 	</h4>
@@ -150,7 +148,7 @@
   <div class="span9 offset2">
 	<h2>Gifted Coordinator/Guidance Counselor Submitted Section</h2>
 	<hr />
-	<%= link_to "Edit Information", edit_coordinator_applicant_path(@applicant) %>
+	<%= link_to "Edit Information", edit_coordinator_applicant_path(@applicant, anchor: "counselor") %>
 	<table class="noborder" style="width:100%;">
 		<tr class="noborder">
 			<td class="noborder">
@@ -170,28 +168,83 @@
 			</tr>	
 		<% end %>
 		<tr class="noborder">
-			<td class="noborder" colpan="2">
+			<td class="noborder">
+				PSAT Math:
+				<% if @applicant.psat_math.present? %>
+					<%= @applicant.psat_math %>
+				<% else %>
+					N/A
+				<% end %>
+			</td>
+			<td class="noborder">
+				PSAT Reading:
+				<% if @applicant.psat_english.present? %>
+					<%= @applicant.psat_english %>
+				<% else %>
+					N/A
+				<% end %>
+			</td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder">
+				VPT Math:
+				<% if @applicant.vpt_math.present? %>
+					<%= @applicant.vpt_math %>
+				<% else %>
+					N/A
+				<% end %>
+			</td>
+			<td class="noborder">
+				VPT English:
+				<% if @applicant.vpt_english.present? %>
+					<%= @applicant.vpt_english %>
+				<% else %>
+					N/A
+				<% end %>
+			</td>
+		</tr>		
+		<tr class="noborder">
+			<td class="noborder">
+				Essay 1:
+				<% if @applicant.essay1_score.present? %>
+					<%= @applicant.essay1_score %>
+				<% else %>
+					N/A
+				<% end %>
+			</td>
+			<td class="noborder">
+				Essay 2:
+				<% if @applicant.essay2_score.present? %>
+					<%= @applicant.essay2_score %>
+				<% else %>
+					N/A
+				<% end %>
+			</td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder" colspan="2">
 				Unweighted GPA: <%= @applicant.gpa %>
 			</td>
 		</tr>	
-		<% if @applicant.due_to.present? %>
-			<tr class="noborder">
+		<tr class="noborder">
+			<% if @applicant.due_to.present? %>
 				<td class="noborder" colspan="2">
 						Information Due To: <%= @applicant.due_to %>
 				</td>
-			</tr>	
-		<% end %>
-		<tr class="noborder">
-			<td class="noborder" colspan="2">
+			<% end %>
+			<td class="noborder">
 				<% if @applicant.date_due.present?%>
 					<p>Date Due: <%= @applicant.date_due.strftime("%m/%d/%Y") %></p>
 				<% end %>
 			</td>
+		</tr>	
+		<tr class="noborder">
+			<td class="noborder" colspan="2">
+				<strong>
+					Please attach an official copy of the student's transcript and an official copy of most recent standardized test data.
+					</strong>
+			</td>
 		</tr>
 	</table>
-	<p style="font-weight:bold;">
-		Please attach an official copy of the student's transcript and an official copy of most 
-		recent standardized test data.
-	</p>
   </div>
 </div>
