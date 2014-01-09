@@ -24,7 +24,15 @@ describe "application" do
     fill_in("Work Phone", with: "111-111-1111")
     fill_in("Email", with: email)
     fill_in("Math", with: "Mrs Smith")
+    fill_in("Email", with:"doc@doc.com")
     fill_in("Science", with: "Doc Oc")
+    fill_in("Email", with:"doc@doc.com")
     fill_in("English", with: "Another One")
+    fill_in("Email", with:"doc@doc.com")
+    fill_in("Street Address", with: "12 Main St.")
+    fill_in("City", with:"MVILLE")
+    fill_in("State", with:"VA")
+    fill_in("5 Digit Zip Code", with:"24112")
+    choose("Engineering")
   end
 end

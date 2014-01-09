@@ -9,8 +9,8 @@
 		<%= f.input :science_teacher_email, :label => "Science Teacher Email", :input_html => {:value => @applicant.science_teacher_email} %>
 		<%= f.input :math_teacher, :input_html => {:value => @applicant.math_teacher} %>
 		<%= f.input :math_teacher_email, :label => "Math Teacher Email", :input_html => {:value => @applicant.math_teacher_email} %>
-		<%= f.input :english_teacher, :input_html => {:value => @applicant.english_teacher} %>
-		<%= f.input :english_teacher_email, :label => "English Teacher Email", :input_html => {:value => @applicant.english_teacher_email} %>
+		<%= f.input :english_teacher, :label => "Alternate Teacher", :input_html => {:value => @applicant.english_teacher} %>
+		<%= f.input :english_teacher_email, :label => "Alternate Teacher Email", :input_html => {:value => @applicant.english_teacher_email} %>
 		<%= f.submit "Send Teacher Invitations", :class => "btn btn-large" %>
 	<% end %>
   </div>
