@@ -6,7 +6,7 @@ to the Academy for Engineering and Technology (AET).
 Faculty Recommendation to be used as a reference in the application process. 
 Please visit the link below to complete the recommendation. 
 
-This should be submitted by April 24, 2014.
+This should be submitted by <%= @teacher_recommendation.applicant.date_due.strftime("%m/%d/%Y") %>.
 
 <%= edit_teacher_recommendation_url(@teacher_recommendation) %> 
 
