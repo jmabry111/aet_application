@@ -7,10 +7,7 @@ class Coordinator::ApplicantsController < ApplicationController
     if current_user.is_admin?
       @applicants = Applicant.joins(:school).search(params[:search]).order(sort_column + " " + sort_direction).per_page_kaminari(params[:page]).per(50).active
     else
-      #@applicants = Applicant.paginate(page: params[:page])
-      @applicants = current_user.applicants.search(params[:search]).order(sort_column + " " + sort_direction).per_page_kaminari(params[:page]).per(50)
-      #applicant = current_user.applicants.all(:order => 'first_name', :joins => :school)
-      #@applicants = Applicant.where(:school_id => current_user.schools.pluck(:id)).paginate(page: params[:page])
+      @applicants = current_user.applicants.search(params[:search]).order(sort_column + " " + sort_direction).per_page_kaminari(params[:page]).per(50).active
     end
   end
 
