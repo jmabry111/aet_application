@@ -5,6 +5,7 @@ class Coordinator::ApplicantsController < ApplicationController
 
   def index
     if current_user.is_admin?
+      @allapplicants = Applicant.active.all
       @applicants = Applicant.joins(:school).search(params[:search]).order(sort_column + " " + sort_direction).per_page_kaminari(params[:page]).per(50).active
     else
       @applicants = current_user.applicants.search(params[:search]).order(sort_column + " " + sort_direction).per_page_kaminari(params[:page]).per(50).active
