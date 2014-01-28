@@ -1,5 +1,9 @@
 <%= paginate @applicants %>
-
+<div class="row">
+	<div class="span3">
+		Total number of applicants: <%= @applicants.size %>
+	</div>
+</div>
 <table id="applicants" class="table table-hover eighty-five-width">
 	<thead>
 	<tr>
