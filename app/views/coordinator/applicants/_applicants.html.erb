@@ -1,9 +1,11 @@
 <%= paginate @applicants %>
+<% if current_user.is_admin? %>
 <div class="row">
 	<div class="span3">
 		Total number of applicants: <%= @allapplicants.size %>
 	</div>
 </div>
+<% end %>
 <table id="applicants" class="table table-hover eighty-five-width">
 	<thead>
 	<tr>
