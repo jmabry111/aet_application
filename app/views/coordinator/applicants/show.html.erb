@@ -248,3 +248,21 @@
 	</table>
   </div>
 </div>
+<% if @applicant.essay_required? %>
+	<% if @applicant.interests_essay.present? %>
+	<br /><br />
+		<div class="row">
+			<div class="span10 offset1">
+				<p><strong>Interest Essay</strong></p>
+				<%= simple_format @applicant.interests_essay %>
+			</div>
+		</div>
+	<% else %>
+		<br /><br />
+		<div class="row noprint">
+			<div class="span3 offset2">
+				<%= link_to "Insert Essay if desired", edit_coordinator_applicant_path(@applicant, anchor: "insert_essay") %>
+			</div>
+		</div>
+	<% end %>
+<% end %>

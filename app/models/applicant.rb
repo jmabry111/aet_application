@@ -39,7 +39,7 @@ class Applicant < ActiveRecord::Base
   validates :teacher_contacted, presence:true, on: :create
   validates :track, presence: true, on: :create
 # validates :engineering_essay, presence: true, on: :create
-# validates :interests_essay, presence: true, on: :create
+  validates :interests_essay, presence: true, on: :create
   
   
 
@@ -103,6 +103,10 @@ class Applicant < ActiveRecord::Base
   
   def self.active
     where(is_archived: !true)
+  end
+  
+  def essay_required?
+    school_id <= 3 || school_id == 10
   end
   
   private 
