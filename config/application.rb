@@ -70,7 +70,7 @@ module AETApplication
       :port                   => 587,
       :domain                 => "newcollegeinstitute.org",
       :user_name              => "aet@newcollegeinstitute.org",
-      :password               => "1NewStudent",
+      :password               => "2NewStudent",
       :authentication         => :login,
       :enable_starttls_auto   => true  
     }
