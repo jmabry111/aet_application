@@ -39,7 +39,7 @@ class Applicant < ActiveRecord::Base
   validates :teacher_contacted, presence:true, on: :create
   validates :track, presence: true, on: :create
 # validates :engineering_essay, presence: true, on: :create
-  validates :interests_essay, presence: true, on: :create
+#  validates :interests_essay, presence: true, on: :create
   
   
 
