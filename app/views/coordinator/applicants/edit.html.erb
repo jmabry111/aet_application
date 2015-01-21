@@ -174,7 +174,7 @@
 		</div>
 		<div class="span2 offset2">
 			<%= f.input :vpt_english, :label => "English:", :input_html => {:type => :text, :pattern => "[0-5]", 
-						:maxlength => 1, :value => @applicant.vpt_english} %>
+						:maxlength => 4, :value => @applicant.vpt_english} %>
 		</div>
 	</div>
 	<% if @applicant.essay_required? %>
