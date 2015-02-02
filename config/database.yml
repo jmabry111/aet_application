@@ -8,6 +8,8 @@ development: &default
   database: aet_development
   min_messages: WARNING
   host: localhost
+  username: postgres
+  password: 'aet-pass4db'
   pool: 5
 
 # Warning: The database defined as "test" will be erased and
