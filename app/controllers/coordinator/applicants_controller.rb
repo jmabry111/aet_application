@@ -3,6 +3,10 @@ class Coordinator::ApplicantsController < ApplicationController
 
   skip_before_filter :authenticate_user!, :only => [:new, :show, :create]
 
+  def applicant_params
+    params.require(:applicant).permit(:school_phone,:gpa,:due_to,:date_due,:counselor_name, :science_teacher, :science_teacher_email, :math_teacher, :math_teacher_email, :english_teacher, :english_teacher_email)
+  end
+
   def index
     if current_user.is_admin?
       @allapplicants = Applicant.active.all
@@ -23,7 +27,7 @@ class Coordinator::ApplicantsController < ApplicationController
 
   def update
     @applicant = find_applicant_or_redirect
-    if @applicant.update_attributes(params[:applicant])
+    if @applicant.update_attributes(applicant_params)
       flash[:success] = "Section 2 Completed"
       redirect_to invite_teachers_coordinator_applicant_path(@applicant)
     else
@@ -37,7 +41,7 @@ class Coordinator::ApplicantsController < ApplicationController
 
   def create_invitations
     @applicant = find_applicant_or_redirect
-    @applicant.update_attributes(params[:applicant])
+    @applicant.update_attributes(applicant_params)
     if has_all_teachers?
       if emails_in_correct_format?
         #call your recommendation generator here

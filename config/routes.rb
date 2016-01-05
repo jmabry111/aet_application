@@ -13,10 +13,10 @@ AETApplication::Application.routes.draw do
     resources :applicants, :only => [:show, :edit, :update, :index] do
       member do
         get 'invite_teachers'
-        put 'create_invitations'
+        patch 'create_invitations'
       end
     end
-    resources :teacher_recommendations, :only => [:show, :edit, :update] do
+    resource :teacher_recommendation, :only => [:show, :edit, :update] do
       resources :recommendation_reminders, :only => [:create, :new, :update]
     end  
     resources :archives, :only => [:index, :create]
@@ -26,35 +26,36 @@ AETApplication::Application.routes.draw do
   
   root to: 'static_pages#info'
   
-  match '/program', to: 'static_pages#program'
+  get '/program' => 'static_pages#program'
   
-  match '/overview', to: 'static_pages#overview'
+  get '/overview' => 'static_pages#overview'
   
-  match 'requirements', to: 'static_pages#requirements'
+  get 'requirements' => 'static_pages#requirements'
   
-  match 'thank_you', to: 'static_pages#thank_you'
+  get 'thank_you' => 'static_pages#thank_you'
   
-  match 'thanks', to: 'static_pages#thank_you_teacher'
+  get 'thanks' => 'static_pages#thank_you_teacher'
   
-  match 'success', to: 'static_pages#success'
+  get 'success' => 'static_pages#success'
   
-  match 'contact', to: 'static_pages#who'
+  get 'contact' => 'static_pages#who'
   
-  match 'sorry', to: 'static_pages#sorry'
+  get 'sorry' => 'static_pages#sorry'
   
-  match 'closed', to: 'static_pages#closed'
+  get 'closed' => 'static_pages#closed'
   
-  #match '/applicant', to: 'applicants#new', :as => 'applicant', :via => :get
-  #match '/applicant', to: 'applicants#create', :as => 'applicant', :via => :post
+  get 'instructions' => 'static_pages#instructions'
+  #get '/applicant' => 'applicants#new', :as => 'applicant', :via => :get
+  #get '/applicant' => 'applicants#create', :as => 'applicant', :via => :post
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
+  #   get 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
+  #   get 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
@@ -101,5 +102,5 @@ AETApplication::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+  # get ':controller(/:action(/:id))(.:format)'
 end

@@ -1,8 +1,5 @@
 class TeacherRecommendation < ActiveRecord::Base
-  attr_accessible :aptitude, :date_submitted, :dedication, :desire, :inquiry_skills, :interaction, 
-        :persistence, :problem_solving, :recommendation, :self_discipline, :study_skills, :subject, 
-        :teamwork, :time_management, :work_ethic, :applicant_id, :email, :teacher_name, :last_notified_at,
-        :self_starter, :written_work
+
   belongs_to :applicant
   before_save :create_slug
   

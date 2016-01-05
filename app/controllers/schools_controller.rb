@@ -1,6 +1,10 @@
 class SchoolsController < ApplicationController
   
   before_filter :authenticate_user!
+
+  def school_params
+    params.require(:school).permit(:name, :user_id)
+  end
   
   def index
     @schools = School.paginate(page: params[:page])
@@ -11,7 +15,7 @@ class SchoolsController < ApplicationController
   end
   
   def create
-    @school = School.new(params[:school])
+    @school = School.new(school_params)
     if @school.save
       redirect_to @school
     else

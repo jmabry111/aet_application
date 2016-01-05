@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  attr_accessible :school_id, :name, :email, :password, :password_confirmation, :remember_me
   
   has_many :user_designations
   has_many :schools, :through => :user_designations

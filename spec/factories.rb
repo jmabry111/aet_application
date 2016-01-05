@@ -114,6 +114,7 @@ FactoryGirl.define do
     parent_confirmation {true}
     teacher_contacted {true}
     applicant_email {Faker::Internet.email}
+    interests_essay {Faker::Lorem.sentences(5)}
     is_archived false
     school_phone {"5555551212"}
     gpa {3.8}

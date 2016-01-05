@@ -9,26 +9,29 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140124010533) do
+ActiveRecord::Schema.define(version: 20140124010533) do
 
-  create_table "active_admin_comments", :force => true do |t|
-    t.string   "resource_id",   :null => false
-    t.string   "resource_type", :null => false
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
     t.integer  "author_id"
     t.string   "author_type"
     t.text     "body"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "namespace"
   end
 
-  add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
-  create_table "applicants", :force => true do |t|
+  create_table "applicants", force: :cascade do |t|
     t.string   "first_name"
     t.string   "middle_name"
     t.string   "last_name"
@@ -43,8 +46,8 @@ ActiveRecord::Schema.define(:version => 20140124010533) do
     t.string   "math_teacher"
     t.string   "science_teacher"
     t.string   "english_teacher"
-    t.datetime "created_at",                                         :null => false
-    t.datetime "updated_at",                                         :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "school_phone"
     t.string   "counselor_name"
     t.string   "due_to"
@@ -61,10 +64,10 @@ ActiveRecord::Schema.define(:version => 20140124010533) do
     t.float    "gpa"
     t.string   "applicant_email"
     t.boolean  "teacher_contacted"
-    t.boolean  "is_archived",                     :default => false
+    t.boolean  "is_archived",                     default: false
     t.string   "ethnicity"
-    t.boolean  "student_texts_ok",                :default => false
-    t.boolean  "parent_texts_ok",                 :default => false
+    t.boolean  "student_texts_ok",                default: false
+    t.boolean  "parent_texts_ok",                 default: false
     t.string   "after_graduation_plans"
     t.string   "degree_plans"
     t.string   "track"
@@ -81,9 +84,9 @@ ActiveRecord::Schema.define(:version => 20140124010533) do
     t.integer  "essay2_score"
   end
 
-  create_table "delayed_jobs", :force => true do |t|
-    t.integer  "priority",   :default => 0
-    t.integer  "attempts",   :default => 0
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0
+    t.integer  "attempts",   default: 0
     t.text     "handler"
     t.text     "last_error"
     t.datetime "run_at"
@@ -91,21 +94,21 @@ ActiveRecord::Schema.define(:version => 20140124010533) do
     t.datetime "failed_at"
     t.string   "locked_by"
     t.string   "queue"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
-  create_table "schools", :force => true do |t|
+  create_table "schools", force: :cascade do |t|
     t.string   "name"
     t.string   "representative_email"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "user_designation_id"
   end
 
-  create_table "teacher_recommendations", :force => true do |t|
+  create_table "teacher_recommendations", force: :cascade do |t|
     t.integer  "desire"
     t.integer  "aptitude"
     t.integer  "persistence"
@@ -121,46 +124,46 @@ ActiveRecord::Schema.define(:version => 20140124010533) do
     t.integer  "recommendation"
     t.string   "subject"
     t.date     "date_submitted"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "applicant_id"
     t.string   "email"
     t.string   "teacher_name"
     t.string   "slug"
     t.datetime "last_notified_at"
-    t.integer  "self_starter",     :default => 0
-    t.integer  "written_work",     :default => 0
+    t.integer  "self_starter",     default: 0
+    t.integer  "written_work",     default: 0
   end
 
-  add_index "teacher_recommendations", ["slug"], :name => "index_teacher_recommendations_on_slug", :unique => true
+  add_index "teacher_recommendations", ["slug"], name: "index_teacher_recommendations_on_slug", unique: true, using: :btree
 
-  create_table "user_designations", :force => true do |t|
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+  create_table "user_designations", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "school_id"
     t.integer  "user_id"
     t.string   "description"
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "",    :null => false
-    t.string   "encrypted_password",     :default => "",    :null => false
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",          default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
-    t.boolean  "admin",                  :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "admin",                  default: false
     t.string   "name"
     t.integer  "user_designation_id"
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

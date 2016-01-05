@@ -1,7 +1,4 @@
 class Applicant < ActiveRecord::Base
-  attr_accessible :address, :email, :english_teacher, :first_name, :gender, :grade, :home_phone, :last_name, 
-    :math_teacher, :middle_name, :parent_first_name, :parent_last_name, :school_id, :science_teacher, :work_phone,
-    :school_phone, :counselor_name, :due_to, :date_due, :english_teacher_email, :science_teacher_email, :math_teacher_email, :applicant_confirmation, :parent_confirmation, :applicant_email, :city, :state, :zip, :gpa, :teacher_contacted, :is_archived, :school, :parent_texts_ok, :ethnicity, :after_graduation_plans, :degree_plans, :additional_academic_info, :engineering_essay, :interests_essay, :track, :psat_math, :psat_english, :vpt_math, :vpt_english, :essay1_score, :essay2_score
     
   belongs_to :school
   has_many :teacher_recommendations
@@ -14,7 +11,7 @@ class Applicant < ActiveRecord::Base
   validates :parent_first_name, presence:true, length: {maximum: 25}
   validates :parent_last_name, presence:true, length: {maximum: 25}
   validates :address, presence:true
-  VALID_PHONE_REGEX = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+  VALID_PHONE_REGEX = /\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})\z/
   validates :home_phone, presence:true, format: {with:VALID_PHONE_REGEX}
   validates :work_phone, presence: true, format: {with:VALID_PHONE_REGEX}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -34,10 +31,10 @@ class Applicant < ActiveRecord::Base
   VALID_ZIP_REGEX = /\d{5}/
   validates :zip, presence:true, format: {with:VALID_ZIP_REGEX}
   validates :applicant_email, allow_blank:true, format: {with:VALID_EMAIL_REGEX}
-  VALID_GPA_REGEX = /^[0]|[0-3]\.(\d?\d?)|[4].[0]$/
+  VALID_GPA_REGEX = /[0]|[0-3]\.(\d?\d?)|[4].[0]\z/
   validates :gpa, presence:true, format: {with:VALID_GPA_REGEX}, on: :update
   validates :teacher_contacted, presence:true, on: :create
-  validates :track, presence: true, on: :create
+# validates :track, presence: true, on: :create
 # validates :engineering_essay, presence: true, on: :create
   validates :interests_essay, presence: true, on: :create
   
@@ -97,7 +94,7 @@ class Applicant < ActiveRecord::Base
       #self.basic_search(search)
       where('first_name iLIKE ? OR last_name iLIKE ? OR name iLIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
     else
-      scoped
+      all
     end
   end
   
