@@ -10,7 +10,11 @@
 			</h3>
 			<h3>
 				Subject Area:
-				<%= @teacher_recommendation.subject %>
+        <% if @teacher_recommendation.subject != "English" %>
+  				<%= @teacher_recommendation.subject %>
+        <% else %>
+          Alternate
+        <% end %>
 			</h3><hr />		
 				<h2>
 					All information submitted on this recommendation will be confidential and viewed 

@@ -6,7 +6,7 @@
 				<%= link_to "Return to Applicant Page", 
 					coordinator_applicant_path(@teacher_recommendation.applicant.id) %><br />
 				<%= button_to "Send Reminder", 
-					coordinator_teacher_recommendation_recommendation_reminders_path(@teacher_recommendation.slug),
+				edit_coordinator_teacher_recommendation_path(@teacher_recommendation.slug),
 				 	:method => :post, class: "btn btn-medium" %>
 				</h1>
 				<p>
@@ -23,7 +23,12 @@
 		<h4 class = "offset3-5">
 			Grade Level: <%= @teacher_recommendation.applicant.grade %><br />
 			Gender: <%= @teacher_recommendation.applicant.gender %><br />
-			Subject Area: <%= @teacher_recommendation.subject %><br />
+      Subject Area: 
+      <% if @teacher_recommendation.subject != "English" %>
+         <%= @teacher_recommendation.subject %>
+      <% else %>
+         Alternate
+      <% end %><br />
 			Completed by: <%= @teacher_recommendation.teacher_name %>
 		</h4>
 		<hr />

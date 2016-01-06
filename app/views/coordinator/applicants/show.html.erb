@@ -39,7 +39,7 @@
 		<% end %>
 		<%if @applicant.english_recommendation.present? %>
 			<span class="span-one-third offset-two-thirds">
-				<%= link_to "English Recommendation", 
+				<%= link_to "Alternate Recommendation", 
 						coordinator_teacher_recommendation_path(@applicant.english_recommendation) %>
 				<% if @applicant.english_recommendation_not_complete? %>
 					<%= image_tag("x.png") %><br />
@@ -134,7 +134,7 @@
 			<td class="noborder"><%= @applicant.science_teacher %></td>
 		</tr>
 		<tr class="noborder">
-			<td class="noborder">English:</td>
+			<td class="noborder">Alternate:</td>
 			<td class="noborder"><%= @applicant.english_teacher %></td>
 		</tr>
 	</table>
