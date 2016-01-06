@@ -39,6 +39,6 @@ AETApplication::Application.configure do
   
   #config.assets.precompile += %w( application-print.css application.css)
   
-  #config.serve_static_assets = false
+  #config.serve_static_files = false
   config.eager_load = false
 end
