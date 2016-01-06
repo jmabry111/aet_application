@@ -117,7 +117,7 @@
       <td class="noborder" colspan="2">Intended Major: <%= @applicant.degree_plans %></td>
     </tr>
     <tr class="noborder">
-      <td class="noborder" colspan="2"><br />Additional Information:<br /><%= @applicant.additional_academic_info %></td>
+      <td class="noborder" colspan="2"><br />Additional Information:<br /><%= simple_format @applicant.additional_academic_info %></td>
     </tr>
 	</table>
 	<br /><br />
