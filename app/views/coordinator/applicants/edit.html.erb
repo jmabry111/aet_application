@@ -83,11 +83,13 @@
 				<%= f.input :degree_plans, :label => "If you are planning to enroll in college, please indicate your intended major.", :input_html => {:value => @applicant.degree_plans} %>
 			</div>
 		</div>
+    <!-- take out track
 		<div class="row">
 			<div class="span8">
 				<%= f.input :track, :label => "Desired track of study", :collection => ["Engineering", "Technology"], :as => :radio_buttons, :input_html => {:value => @applicant.track}, :item_wrapper_class => :inline %>
 			</div>
 		</div>
+    -->
 		<div class="row" id="insert_essay">
 			<div class="span8">	
 				<%= f.input :additional_academic_info, :label => "Additional academic information:", as: :text, :input_html => { :rows => 6, :value => @applicant.additional_academic_info } %>

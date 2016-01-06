@@ -75,7 +75,6 @@
 		</tr>
 		<tr class="noborder">
 			<td class="noborder half-width">High School: <%= @applicant.school.name %><br /><br /></td>
-			<td class="noborder half-width">Grade Level: <%= @applicant.grade %><br /><br /></td>
 		</tr>
 		<tr class="noborder">
 			<td class="noborder" colspan="2">
@@ -102,7 +101,7 @@
 				Home Phone: <%= number_to_phone(@applicant.home_phone, :area_code => true) %>
 			</td>
 			<td class="noborder half-width">
-				Work Phone: <%= number_to_phone(@applicant.work_phone, :area_code => true) %>
+				Cell Phone: <%= number_to_phone(@applicant.work_phone, :area_code => true) %>
 			</td>
 		</tr>
 		<tr class="noborder">
@@ -111,6 +110,15 @@
 		<tr class="noborder">
 			<td class="noborder" colspan="2">Student Email Address: <%= @applicant.applicant_email %></td>
 		</tr>
+    <tr class="noborder">
+      <td class="noborder" colspan="2"><br />Graduation Plans: <%= @applicant.after_graduation_plans %></td>
+    </tr>
+    <tr class="noborder">
+      <td class="noborder" colspan="2">Intended Major: <%= @applicant.degree_plans %></td>
+    </tr>
+    <tr class="noborder">
+      <td class="noborder" colspan="2"><br />Additional Information:<br /><%= @applicant.additional_academic_info %></td>
+    </tr>
 	</table>
 	<br /><br />
 	<table class="noborder">

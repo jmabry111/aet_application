@@ -4,7 +4,7 @@ class Coordinator::ApplicantsController < ApplicationController
   skip_before_filter :authenticate_user!, :only => [:new, :show, :create]
 
   def applicant_params
-    params.require(:applicant).permit(:school_phone,:gpa,:due_to,:date_due,:counselor_name, :science_teacher, :science_teacher_email, :math_teacher, :math_teacher_email, :english_teacher, :english_teacher_email)
+    params.require(:applicant).permit(:school_phone,:gpa,:due_to,:date_due,:counselor_name, :science_teacher, :science_teacher_email, :math_teacher, :math_teacher_email, :english_teacher, :english_teacher_email, :psat_math, :psat_english, :vpt_english, :vpt_math, :essay2_score, :additional_academic_info)
   end
 
   def index
