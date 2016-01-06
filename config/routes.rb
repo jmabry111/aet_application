@@ -26,11 +26,11 @@ AETApplication::Application.routes.draw do
   
   root to: 'static_pages#info'
   
-  get '/program' => 'static_pages#program'
+ # get '/program' => 'static_pages#program'
   
-  get '/overview' => 'static_pages#overview'
+ # get '/overview' => 'static_pages#overview'
   
-  get 'requirements' => 'static_pages#requirements'
+ # get 'requirements' => 'static_pages#requirements'
   
   get 'thank_you' => 'static_pages#thank_you'
   
@@ -44,7 +44,6 @@ AETApplication::Application.routes.draw do
   
   get 'closed' => 'static_pages#closed'
   
-  get 'instructions' => 'static_pages#instructions'
   #get '/applicant' => 'applicants#new', :as => 'applicant', :via => :get
   #get '/applicant' => 'applicants#create', :as => 'applicant', :via => :post
   # The priority is based upon order of creation:
