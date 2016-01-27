@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  ActiveAdmin.register Post do
+    permit_params :email, :name
+  end
   
   after_create { |user| user.send_reset_password_instructions }
   def password_required?
