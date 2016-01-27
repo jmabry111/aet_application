@@ -1,5 +1,7 @@
 ActiveAdmin.register User do
+  permit_params :email, :current_sign_in_at, :last_sign_in_at, :sign_in_count, :name
     index do
+      selectable_column
       column :email
       column :current_sign_in_at
       column :last_sign_in_at
