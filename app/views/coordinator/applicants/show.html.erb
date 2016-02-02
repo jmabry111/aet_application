@@ -19,6 +19,8 @@
 					<%= image_tag("check.png") %>
 				<% end %>
 			</span>
+    <%else %>
+      No recommendations yet, please click <%= link_to "here", invite_teachers_coordinator_applicant_path(@applicant), class: "btn btn-mini", :method => :get %> to send recommendation invitations to teachers.
 		<%end %>
 		<%if @applicant.math_recommendation.present? %>
 			<span class="span-one-third offset-one-third">
