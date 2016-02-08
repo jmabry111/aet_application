@@ -37,6 +37,7 @@ class Applicant < ActiveRecord::Base
 # validates :track, presence: true, on: :create
 # validates :engineering_essay, presence: true, on: :create
   validates :interests_essay, presence: true, on: :create
+  validates :last_name, uniqueness: { scope: [:first_name, :grade, :address, :email], :message => ", First Name, Grade Level, Address, and Email are all duplicate entries. This application has already been submitted. Please check your email for a confirmation and link to your status page. If you did not receive a confirmation, please contact jmabry@newcollegeinstitute.org with your name and questions." }
   
   
 
