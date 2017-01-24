@@ -32,7 +32,7 @@ class Applicant < ActiveRecord::Base
   validates :zip, presence:true, format: {with:VALID_ZIP_REGEX}
   validates :applicant_email, allow_blank:true, format: {with:VALID_EMAIL_REGEX}
   VALID_GPA_REGEX = /[0]|[0-3]\.(\d?\d?)|[4].[0]\z/
-  validates :gpa, presence:true, format: {with:VALID_GPA_REGEX}, on: :update
+#  validates :gpa, presence:true, format: {with:VALID_GPA_REGEX}, on: :update
   validates :teacher_contacted, presence:true, on: :create
 # validates :track, presence: true, on: :create
 # validates :engineering_essay, presence: true, on: :create
