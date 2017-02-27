@@ -159,11 +159,11 @@
 	<div class="row">
 		<div class="span2">
 			<%= f.input :psat_math, :label => "Math:", :input_html => {:type => :text, :pattern => "[0-9]*", 
-						:maxlength => 2, :value => @applicant.psat_math} %>
+						:maxlength => 3, :value => @applicant.psat_math} %>
 		</div>
 		<div class="span2 offset2">
 			<%= f.input :psat_english, :label => "Critical Reading:", :input_html => {:type => :text, :pattern => "[0-5]", 
-						:maxlength => 2, :value => @applicant.psat_english} %>
+						:maxlength => 3, :value => @applicant.psat_english} %>
 		</div>
 	</div>
 	<div class="row">
