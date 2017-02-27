@@ -171,12 +171,10 @@
 	</div>
 	<div class="row">
 		<div class="span2">
-			<%= f.input :vpt_math, :label => "Math:", :input_html => {:type => :text, :pattern => "[0-9]*", 
-						:maxlength => 4, :value => @applicant.vpt_math} %>
+			<%= f.input :vpt_math, :label => "Math:", :input_html => {:type => :text, :maxlength => 5, :value => @applicant.vpt_math} %>
 		</div>
 		<div class="span2 offset2">
-			<%= f.input :vpt_english, :label => "English:", :input_html => {:type => :text, :pattern => "[0-5]", 
-						:maxlength => 4, :value => @applicant.vpt_english} %>
+			<%= f.input :vpt_english, :label => "English:", :input_html => {:type => :text, :maxlength => 5, :value => @applicant.vpt_english} %>
 		</div>
 	</div>
 	<% if @applicant.essay_required? %>
