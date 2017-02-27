@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140124010533) do
+ActiveRecord::Schema.define(version: 20170227175321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(version: 20140124010533) do
     t.text     "interests_essay"
     t.integer  "psat_english"
     t.integer  "psat_math"
-    t.integer  "vpt_english"
-    t.integer  "vpt_math"
+    t.string   "vpt_english"
+    t.string   "vpt_math"
     t.integer  "essay1_score"
     t.integer  "essay2_score"
   end
