@@ -169,14 +169,17 @@
 	<div class="row">
 		<div class="span4"><strong>VPT Scores:</strong></div>
 	</div>
+
 	<div class="row">
 		<div class="span2">
 			<%= f.input :vpt_math, :label => "Math:", :input_html => {:value => @applicant.vpt_math} %>
 		</div>
+    
 		<div class="span2 offset2">
 			<%= f.input :vpt_english, :label => "English:", :input_html => {:value => @applicant.vpt_english} %>
 		</div>
 	</div>
+
 	<% if @applicant.essay_required? %>
 		<div class="row">
 			<div class="span8"><strong>Essay Score (1-5)</strong></div>
