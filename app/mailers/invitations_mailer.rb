@@ -1,5 +1,5 @@
 class NotificationsMailer < ActionMailer::Base
-  default :from => "aet@newcollegeinstitute.org"
+  default :from => "aet.faculty@gmail.com"
 
   def invitations_message(applicant)
     @applicant = applicant

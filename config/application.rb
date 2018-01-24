@@ -66,16 +66,16 @@ module AETApplication
     
     # Configure email options
     config.action_mailer.smtp_settings = {
-      :address                => "smtp.office365.com",
+      :address                => "smtp.gmail.com",
       :port                   => 587,
-      :domain                 => "newcollegeinstitute.org",
-      :user_name              => "aet@newcollegeinstitute.org",
-      :password               => "2NewStudent",
-      :authentication         => :login,
+      :domain                 => "gmail.com",
+      :user_name              => "aet.faculty@gmail.com",
+      :password               => "NCI&IALR",
+      :authentication         => :plain,
       :enable_starttls_auto   => true  
     }
     config.action_mailer.default_url_options = {
-      :host => "newcollegeinstitute.org"
+      :host => "gmail.com"
     }
   end
 end
