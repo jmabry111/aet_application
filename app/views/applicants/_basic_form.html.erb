@@ -1,9 +1,10 @@
 <%= simple_form_for @applicant, html: {id: :applicant_form} do |f| -%>
 	<%= render 'shared/error_messages', object: f.object %>
+  <%= f.invisible_captcha :nobots %>
 	<div class="row">
-		<div class="span3"><%= f.input :first_name, :label => "First Name"  %></div> 
-		<div class="span2"><%= f.input :middle_name, :label => "Middle Name" %></div> 
-		<div class="span3"><%= f.input :last_name, :label => "Last Name" %></div> 
+		<div class="span3"><%= f.input :first_name, :label => "First Name"  %></div>
+		<div class="span2"><%= f.input :middle_name, :label => "Middle Name" %></div>
+		<div class="span3"><%= f.input :last_name, :label => "Last Name" %></div>
 	</div>
 	<div class="row">
 		<div class="span8"><%= f.association :school, :input_html => { :id => "schoolchoice" }%></div>
@@ -58,7 +59,7 @@
 		</div>
   </div><br />
 	<div class="row">
-		<div class="span8">	
+		<div class="span8">
 			<%= f.input :additional_academic_info, :label => "Additional academic information you would like to include:", as: :text, :input_html => { :rows => 6 } %>
 		</div>
 	</div>
@@ -97,7 +98,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="span4">	
+		<div class="span4">
 		<%= f.input :science_teacher, :label => "Science Faculty Member Name:", :input_html => {:value => @applicant.science_teacher} %>
 		</div>
 		<div class="span4">
@@ -105,7 +106,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="span4">	
+		<div class="span4">
 		<%= f.input :english_teacher, :label => "English Faculty Member Name:", :input_html => {:value => @applicant.english_teacher} %>
 		</div>
 		<div class="span4">
@@ -113,14 +114,14 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="span8">	
-		<%= f.input :teacher_contacted, label: false, :as => :boolean, :inline_label => "I verify that I have contacted 
+		<div class="span8">
+		<%= f.input :teacher_contacted, label: false, :as => :boolean, :inline_label => "I verify that I have contacted
 					the above teachers concerning these recommendations." %>
 		</div>
 	</div>
 	<hr />
 	<div class="row">
-		<div class="span8">	
+		<div class="span8">
 			<p class="confirm">
 				<%= f.input :applicant_confirmation, label: false, :as => :boolean, :inline_label => "The decision to apply to the Academy for Engineering and Technology is my own, and I want to participate fully in this program. I have read in its entirety the application procedures, including the application forms, and am aware of the appeals process of my school division." %>
 			</p>
@@ -140,19 +141,20 @@
 			<p>
 				<strong>
 					Please be aware that your photo may be taken throughout the year during classroom and experiential learning activities.  By completing this application, you and your parent/guardian allow and acknowledge that your photo may be published in press releases and/or promotional materials.
-				</strong> 
+				</strong>
 			</p>
 		</div>
 	</div>
 	<div class="row">
-		<div class="span8 text-center">			
-      <%= f.submit "Submit my information", class: "btn btn-large", data: { disable_with: "Submitting Application..." } %> 
+		<div class="span8 text-center">
+      <%= f.submit "Submit my information", class: "btn btn-large", data: { disable_with: "Submitting Application..." } %>
 		</div>
 	</div>
 	<div class="row">
-		<div class="span8 text-center">	
+		<div class="span8 text-center">
       <h3 p class="red">This may take a moment.</h3>
       <h3 p class="red"> Please only press submit once.</h3>
 		</div>
 	</div>
+  <%= f.invisible_captcha :nobots %>
 <% end %>

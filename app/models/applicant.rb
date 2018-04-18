@@ -1,10 +1,11 @@
 class Applicant < ActiveRecord::Base
-    
+  attr_accessor :nobots
+
   belongs_to :school
   has_many :teacher_recommendations
-  
+
   before_save :strip_extra_characters
-  
+
   validates :school, presence:true
   validates :first_name, presence:true, length: {maximum: 25}
   validates :last_name, presence:true, length: {maximum: 25}
@@ -38,19 +39,19 @@ class Applicant < ActiveRecord::Base
 # validates :engineering_essay, presence: true, on: :create
   validates :interests_essay, presence: true, on: :create
   validates :last_name, uniqueness: { scope: [:first_name, :grade, :address, :email], :message => ", First Name, Grade Level, Address, and Email are all duplicate entries. This application has already been submitted. Please check your email for a confirmation and link to your status page. If you did not receive a confirmation, please contact jhatchett@ialr.org with your name and questions." }
-  
-  
+  validates :nobots, presence: false
+
 
   def strip_extra_characters
     self.home_phone = remove_non_digit_characters(home_phone)
     self.work_phone = remove_non_digit_characters(work_phone)
     self.school_phone = remove_non_digit_characters(school_phone)
   end
-  
+
   def to_s
     "#{first_name} #{last_name}"
   end
-    
+
   def science_recommendation
     science_recommendation = find_recommendation_by_subject("Science")
   end
@@ -58,7 +59,7 @@ class Applicant < ActiveRecord::Base
     science_recommendation = find_recommendation_by_subject("Science")
     science_recommendation.recommendation == nil
   end
-  
+
   def math_recommendation
     math_recommendation = find_recommendation_by_subject("Math")
   end
@@ -66,7 +67,7 @@ class Applicant < ActiveRecord::Base
     math_recommendation = find_recommendation_by_subject("Math")
     math_recommendation.recommendation == nil
   end
-    
+
   def english_recommendation
     english_recommendation = find_recommendation_by_subject("English")
   end
@@ -74,22 +75,22 @@ class Applicant < ActiveRecord::Base
     english_recommendation = find_recommendation_by_subject("English")
     english_recommendation.recommendation == nil
   end
-  
+
   def count_recommendations
     teacher_recommendations.select(&:complete?).count
   end
   def count_non_complete_recommendations
     teacher_recommendations.count
   end
-  
+
   def counselor_portion_complete?
     gpa.present? && date_due.present?
   end
-  
+
   def applicant_portion_complete?
     first_name.present? && last_name.present? && home_phone.present? && parent_confirmation.present?
   end
- 
+
   def self.search(search)
     if search
       #self.basic_search(search)
@@ -98,17 +99,17 @@ class Applicant < ActiveRecord::Base
       all
     end
   end
-  
+
   def self.active
     where(is_archived: !true)
   end
-  
+
   def essay_required?
     school_id <= 3 || school_id == 10
   end
-  
-  private 
-  
+
+  private
+
   def find_recommendation_by_subject(subject)
     teacher_recommendation = teacher_recommendations.find_by_subject(subject)
   end

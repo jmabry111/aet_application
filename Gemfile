@@ -18,6 +18,7 @@ gem 'database_cleaner'#, '~>0.9.1'
 gem 'textacular'
 gem 'activemodel'
 gem 'i18n'
+gem 'invisible_captcha'
 
 
 group :development, :test do
