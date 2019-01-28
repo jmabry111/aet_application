@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby "2.2.2"
+ruby "2.4.2"
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.9'
 gem 'bootstrap-sass'#, '~>2.0.4.0'
 gem 'activeadmin', github: 'activeadmin'
 gem 'kaminari'#, '~>0.14.1'
