@@ -1,7 +1,7 @@
 # General
 
 [AET Staging](http://aet-staging.newcollegeinstitute.org/)
-[AET Production](http://aet-application.newcollegeinstitute.org)
+[AET Production](http://aet-application.ialr.org)
 
 # Set up
 ````bash

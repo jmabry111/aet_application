@@ -22,7 +22,7 @@ AETApplication::Application.configure do
   config.assets.digest = true
   
   config.action_mailer.default_url_options = { 
-    :host => 'aet-application.newcollegeinstitute.org' 
+    :host => 'aet-application.ialr.org' 
   }
 
   # Defaults to nil and saved in location specified by config.assets.prefix
