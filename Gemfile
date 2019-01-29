@@ -26,7 +26,7 @@ group :development, :test do
   gem 'rspec-rails'#, '2.11.0'
   gem 'guard-rspec'#, '0.5.5'
   gem 'pry'#, '0.9.1'
-#  gem 'rake', '10.1.1'
+  gem 'rake', '< 11.0'
 end
 
 # Gems used only for assets and not required

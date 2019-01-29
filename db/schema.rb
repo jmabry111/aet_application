@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227175321) do
+ActiveRecord::Schema.define(version: 20190129135234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 20170227175321) do
     t.integer  "essay1_score"
     t.integer  "essay2_score"
   end
+
+  add_index "applicants", ["last_name", "first_name", "address", "email"], name: "applicant_index", unique: true, using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0
