@@ -1,4 +1,5 @@
 class ApplicantsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotUnique, :with => :validate_applicant
   invisible_captcha only: :send_notifications, on_spam: :spam_detected
 
   skip_before_filter :authenticate_user!, :only => [:new, :show, :create, @success_path]
@@ -76,4 +77,8 @@ class ApplicantsController < ApplicationController
       end
     end
 
+    def validate_applicant
+      flash[:error] = "It seems as if you've already submitted an application. If you believe this to be an error, please contact John Hatchett at jhatchett@ialr.org"
+      render action: "new"
+    end
 end
