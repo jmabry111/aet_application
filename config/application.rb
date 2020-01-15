@@ -70,7 +70,7 @@ module AETApplication
       :port                   => 587,
       :domain                 => "gmail.com",
       :user_name              => "aet.faculty@gmail.com",
-      :password               => "NCI&IALR",
+      :password               => "AET@IALR",
       :authentication         => :plain,
       :enable_starttls_auto   => true  
     }
