@@ -26,12 +26,6 @@ AETApplication::Application.routes.draw do
   
   root to: 'static_pages#info'
   
- # get '/program' => 'static_pages#program'
-  
- # get '/overview' => 'static_pages#overview'
-  
- # get 'requirements' => 'static_pages#requirements'
-  
   get 'thank_you' => 'static_pages#thank_you'
   
   get 'thanks' => 'static_pages#thank_you_teacher'
