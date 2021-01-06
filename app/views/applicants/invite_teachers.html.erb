@@ -4,9 +4,6 @@
 	<p>
 		Please enter the email addresses for the teachers that will submit Faculty Recommendations for <%= @applicant.first_name %> <%= @applicant.last_name %>.
 	</p>
-		<p>
-			<em>* If teachers have already been invited (this is a subsequent edit of school or essay information), click <%= link_to "here", coordinator_applicant_path(@applicant) %> to return to <%= @applicant.first_name %>'s information.</em>
-		</p>
     <%= simple_form_for @applicant, :url =>create_invitations_applicant_path(@applicant.id) do |f| -%>
 		<%= f.input :science_teacher, :input_html => {:value => @applicant.science_teacher} %>
 		<%= f.input :science_teacher_email, :label => "Science Teacher Email", :input_html => {:value => @applicant.science_teacher_email} %>

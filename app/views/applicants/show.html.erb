@@ -27,6 +27,9 @@
 					</td>
 					<% if @applicant.counselor_portion_complete? %>
 						<td><%= image_tag("check.png") %></td>
+					<% else %>
+						<td><%= image_tag("x.png") %></td>
+          <% end %>
 						<%if @applicant.science_recommendation.present? %>
 							<td>Sent<br /><%= image_tag("check.png") %></td>
 							<% if !@applicant.science_recommendation_not_complete? %>
@@ -60,15 +63,6 @@
 							<td>Sent<br /><%= image_tag("x.png") %></td>
 							<td>Completed<br /><%= image_tag("x.png") %></td>
 						<% end %>
-					<% else %>
-						<td><%= image_tag("x.png") %></td>
-						<td>Sent<br /><%= image_tag("x.png") %></td>
-						<td>Completed<br /><%= image_tag("x.png") %></td>
-						<td>Sent<br /><%= image_tag("x.png") %></td>
-						<td>Completed<br /><%= image_tag("x.png") %></td>
-						<td>Sent<br /><%= image_tag("x.png") %></td>
-						<td>Completed<br /><%= image_tag("x.png") %></td>
-					<% end %>
 				</tr>
 			</tbody>
 		</table>
