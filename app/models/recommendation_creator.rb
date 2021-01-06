@@ -1,11 +1,9 @@
 class RecommendationCreator
-  
 
-  
   def initialize(applicant)
     @applicant = applicant
   end
-  
+
   def create_recommendations
     create_science_recommendation
     create_math_recommendation

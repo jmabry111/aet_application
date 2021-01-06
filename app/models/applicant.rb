@@ -35,9 +35,7 @@ class Applicant < ActiveRecord::Base
   VALID_GPA_REGEX = /[0]|[0-3]\.(\d?\d?)|[4].[0]\z/
   validates :gpa, presence:true, format: {with:VALID_GPA_REGEX}, on: :update
   validates :teacher_contacted, presence:true, on: :create
-# validates :track, presence: true, on: :create
-# validates :engineering_essay, presence: true, on: :create
-  validates :interests_essay, presence: true, on: :create
+#  validates :interests_essay, presence: true, on: :create
   validates :nobots, presence: false
 
 

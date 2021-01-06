@@ -11,9 +11,11 @@
 				</h1>
 				<p>
 					If the teacher is not receiving the invitation emails, you can copy and paste the direct link below to them. <br />
-					Click the button to the right of the link to automatically copy it to your clipboard. <br />
-					<span id="clipme"><%= edit_teacher_recommendation_url(@teacher_recommendation) %></span>
-					<%= clippy("#{edit_teacher_recommendation_url(@teacher_recommendation)}", "#ffffff").html_safe %>
+          <input type="text" id="clipMe" value="<%= edit_teacher_recommendation_url(@teacher_recommendation) %>" />
+          <!--
+					Click the button below the link to automatically copy it to your clipboard. <br />
+          <button id="clipButton">Copy Link</button><span id="copyMsg" style="visibility:hidden;">&nbsp;Link copied!</span>
+          -->
 				</p>
 		<% end %>
 		<h3 class="recommend">Faculty Recommendation for 

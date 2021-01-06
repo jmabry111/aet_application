@@ -52,17 +52,30 @@ $(function() {
 
 $(function() {
     $("#applicant_form select").bind("change", function() { 
-        if ($("#schoolchoice :selected").text() === "Bassett High School" ||
-			$("#schoolchoice :selected").text() === "Magna Vista High School"||
-			$("#schoolchoice :selected").text() === "Martinsville High School" ||
-			$("#schoolchoice :selected").text() === "Carlisle School") {
-		           $("#applicant_track_engineering").attr('checked', false);
-		 		   $("#applicant_track_engineering").attr('disabled', false);
-		 		   $("#applicant_track_technology").attr('disabled', false);
+        var ws = document.getElementById('writingSample');
+        if ($("#schoolchoice :selected").text() === "George Washington High School" ||
+			$("#schoolchoice :selected").text() === "Galileo High School") {
+		      ws.style.display = 'inline';
         } else {
-           $("#applicant_track_engineering").attr('checked', true);
-		   $("#applicant_track_engineering").attr('disabled', true);
-		   $("#applicant_track_technology").attr('disabled', true);
+          ws.style.display = 'none';
         }
     });
+});
+
+// Copy to clipboard
+document.addEventListener('turbolinks:load', () => {
+  document.querySelector('#clipButton').addEventListener('click', function() {
+    document.querySelector('#clipMe').select();
+
+    var succeed;
+    try {
+      succeed = document.execCommand('copy');
+    } catch (e) {
+      succeed = false;
+    }
+
+    if(succeed) {
+      document.querySelector('#copyMsg').style.visibility = 'visible';
+    }
+  });
 });

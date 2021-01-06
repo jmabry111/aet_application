@@ -5,7 +5,13 @@ AETApplication::Application.routes.draw do
   devise_for :users#, ActiveAdmin::Devise.config
   
 
-  resources :applicants, only: [:new, :create, :show]
+  resources :applicants, only: [:new, :create, :edit, :update, :show] do
+    member do
+      get 'invite_teachers'
+      patch 'create_invitations'
+    end
+  end
+
   resources :schools
   resources :teacher_recommendations, :only => [:new, :create, :edit, :update]
 
@@ -25,12 +31,6 @@ AETApplication::Application.routes.draw do
   get "static_pages/info"
   
   root to: 'static_pages#info'
-  
- # get '/program' => 'static_pages#program'
-  
- # get '/overview' => 'static_pages#overview'
-  
- # get 'requirements' => 'static_pages#requirements'
   
   get 'thank_you' => 'static_pages#thank_you'
   
