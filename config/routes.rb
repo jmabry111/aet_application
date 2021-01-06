@@ -5,7 +5,13 @@ AETApplication::Application.routes.draw do
   devise_for :users#, ActiveAdmin::Devise.config
   
 
-  resources :applicants, only: [:new, :create, :show]
+  resources :applicants, only: [:new, :create, :edit, :update, :show] do
+    member do
+      get 'invite_teachers'
+      patch 'create_invitations'
+    end
+  end
+
   resources :schools
   resources :teacher_recommendations, :only => [:new, :create, :edit, :update]
 

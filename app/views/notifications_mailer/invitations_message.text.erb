@@ -39,6 +39,6 @@ D.  Self-accountable for college level behavior
 
 <%= edit_teacher_recommendation_url(@teacher_recommendation) %> 
 
-Please submit your recommendation no later than <%= @teacher_recommendation.applicant.date_due.strftime("%m/%d/%Y") %>.
+Please submit your recommendation no later than <%= (DateTime.now + 14).strftime("%m/%d/%Y") %>.
 
 Thank you!
