@@ -51,10 +51,7 @@ class ApplicantsController < ApplicationController
     @applicant = find_applicant_or_redirect
     @applicant.update_attributes(applicant_params)
     if has_all_teachers?
-      puts "HEY ALL TEACHERS ARE THERE"
       if emails_in_correct_format?
-        puts "HEY ALL EMAILS ARE CORRECT"
-        puts @applicant.teacher_recommendations.count
         if @applicant.teacher_recommendations.count == 0
           RecommendationCreator.new(@applicant).create_recommendations
           flash[:success] = "Invitations successfully sent"
