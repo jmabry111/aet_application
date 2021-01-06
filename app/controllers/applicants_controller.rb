@@ -23,7 +23,6 @@ class ApplicantsController < ApplicationController
       if @applicant.save
         session[:current_applicant] = @applicant.id
         send_notifications
-#        redirect_to success_path, notice: 'Information was successfully submitted.'
         redirect_to invite_teachers_applicant_path(@applicant)
       else
         render action: "new"
