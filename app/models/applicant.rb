@@ -25,15 +25,15 @@ class Applicant < ActiveRecord::Base
   validates :english_teacher_email, presence:true,  format: {with:VALID_EMAIL_REGEX}
   validates :applicant_confirmation, presence:true, on: :create
   validates :parent_confirmation, presence:true, on: :create
-#  validates :school_phone, allow_blank:true, format: {with:VALID_PHONE_REGEX}, on: :update
-#  validates :date_due, presence:true, on: :update
+  validates :school_phone, allow_blank:true, format: {with:VALID_PHONE_REGEX}, on: :update
+  validates :date_due, presence:true, on: :update
   validates :city, presence:true
   validates :state, presence:true
   VALID_ZIP_REGEX = /\d{5}/
   validates :zip, presence:true, format: {with:VALID_ZIP_REGEX}
   validates :applicant_email, allow_blank:true, format: {with:VALID_EMAIL_REGEX}
   VALID_GPA_REGEX = /[0]|[0-3]\.(\d?\d?)|[4].[0]\z/
-#  validates :gpa, presence:true, format: {with:VALID_GPA_REGEX}, on: :update
+  validates :gpa, presence:true, format: {with:VALID_GPA_REGEX}, on: :update
   validates :teacher_contacted, presence:true, on: :create
 #  validates :interests_essay, presence: true, on: :create
   validates :nobots, presence: false
