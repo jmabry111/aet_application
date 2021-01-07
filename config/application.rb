@@ -71,11 +71,10 @@ module AETApplication
       :domain                 => "ialr.org",
       :user_name              => ENV["GMAIL_USERNAME"],
       :password               => ENV["GMAIL_PASSWORD"],
-      :authentication         => :plain,
       :enable_starttls_auto   => true  
     }
     config.action_mailer.default_url_options = {
-      :host => "gmail.com"
+      :host => "ialr.org"
     }
   end
 end
