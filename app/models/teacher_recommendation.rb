@@ -43,7 +43,11 @@ class TeacherRecommendation < ActiveRecord::Base
   def to_param
     self.slug
   end
-  
+
+  def due_date
+    ENV["DUE_DATE"]
+  end
+
   private
   def create_slug
     if self.slug == nil
