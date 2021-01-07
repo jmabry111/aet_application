@@ -21,7 +21,7 @@ AETApplication::Application.configure do
   config.assets.digest = true
   
   config.action_mailer.default_url_options = { 
-    :host => 'aet-staging.newcollegeinstitute.org' 
+    :host => 'aet-staging.herokuapp.com' 
   }
   
   config.assets.precompile += %w[active_admin.css active_admin.js]
