@@ -52,7 +52,20 @@ This needs to be done in the terminal session that will run the rails server.
 export REGISTRATION_OPEN='true'
 export REGISTRATION_OPEN='false'
 ````
-
+# Set teacher recommendation due date
+Production:
+````bash
+heroku config:set DUE_DATE="February 23, 2021" --app aet-application
+````
+Staging:
+````bash
+heroku config:set DUE_DATE="February 23, 2021" --app aet-staging
+````
+Development:
+This needs to be done in the terminal session that will run the rails server.
+````bash
+export DUE_DATE="February 23, 2021"
+````
 # Drop staging database
 Find Database Name
 ````bash

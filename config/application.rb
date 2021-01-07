@@ -66,16 +66,17 @@ module AETApplication
     
     # Configure email options
     config.action_mailer.smtp_settings = {
-      :address                => "smtp.gmail.com",
+      :address                => "smtp.office365.com",
       :port                   => 587,
-      :domain                 => "gmail.com",
+      :domain                 => "ialr.org",
       :user_name              => ENV["GMAIL_USERNAME"],
       :password               => ENV["GMAIL_PASSWORD"],
-      :authentication         => :plain,
+      :authentication         => :login,
       :enable_starttls_auto   => true  
     }
+    config.action_mailer.delivery_method = :smtp
     config.action_mailer.default_url_options = {
-      :host => "gmail.com"
+      :host => "ialr.org"
     }
   end
 end
