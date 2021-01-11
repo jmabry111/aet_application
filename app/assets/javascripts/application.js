@@ -50,17 +50,17 @@ $(function() {
 	});
 });
 
-$(function() {
-    $("#applicant_form select").bind("change", function() { 
-        var ws = document.getElementById('writingSample');
-        if ($("#schoolchoice :selected").text() === "George Washington High School" ||
-			$("#schoolchoice :selected").text() === "Galileo High School") {
-		      ws.style.display = 'inline';
-        } else {
-          ws.style.display = 'none';
-        }
-    });
-});
+//$(function() {
+//    $("#applicant_form select").bind("change", function() { 
+//        var ws = document.getElementById('writingSample');
+//        if ($("#schoolchoice :selected").text() === "George Washington High School" ||
+//			$("#schoolchoice :selected").text() === "Galileo High School") {
+//		      ws.style.display = 'inline';
+//        } else {
+//          ws.style.display = 'none';
+//        }
+//    });
+//});
 
 // Copy to clipboard
 document.addEventListener('turbolinks:load', () => {
